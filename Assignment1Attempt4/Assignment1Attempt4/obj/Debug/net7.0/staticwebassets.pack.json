@@ -245,6 +245,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\test@test.jfif",
+      "PackagePath": "staticwebassets\\pfpimages\\test@test.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\test@test.jpg",
+      "PackagePath": "staticwebassets\\pfpimages\\test@test.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Assignment1Attempt4.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

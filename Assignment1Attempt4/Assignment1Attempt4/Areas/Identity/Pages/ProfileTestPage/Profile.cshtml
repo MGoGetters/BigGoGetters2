@@ -1,0 +1,16 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.ProfileTestPage.ProfileModel
+@{
+    var userName = PageContext.HttpContext.User.Identity.Name;
+    var picturePath = $"/pfpimages/{userName}.jpg";
+
+    if (!string.IsNullOrEmpty(picturePath))
+    {
+        <h1>Welcome to Your Profile @userName</h1>
+        <img src="@picturePath" alt="Profile Picture" width="500" height="400">
+    }
+    else
+    {
+        <p>No profile picture available.</p>
+    }
+}

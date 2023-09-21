@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UIH1HuoFWPUCsbsXb9Lh3zB6ImqjC8V9NZsJ+Li6oRo=",
+  "Hash": "2pmjWFQmka7cijZT/inrfSxnC0Zx2Y70HHR2/OcdsWI=",
   "Source": "Assignment1Attempt4",
   "BasePath": "_content/Assignment1Attempt4",
   "Mode": "Default",
@@ -2089,6 +2089,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\test@test.jfif",
+      "SourceId": "Assignment1Attempt4",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\",
+      "BasePath": "_content/Assignment1Attempt4",
+      "RelativePath": "pfpimages/test@test.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pfpimages\\test@test.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\test@test.jpg",
+      "SourceId": "Assignment1Attempt4",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\",
+      "BasePath": "_content/Assignment1Attempt4",
+      "RelativePath": "pfpimages/test@test.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pfpimages\\test@test.jpg"
     }
   ]
 }
