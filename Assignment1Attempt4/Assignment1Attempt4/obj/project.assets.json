@@ -11688,24 +11688,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\micha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\demol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
+      "projectUniqueName": "C:\\Users\\demol\\Source\\Repos\\BigGoGetters1\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
       "projectName": "Assignment1Attempt4",
-      "projectPath": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
-      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\obj\\",
+      "projectPath": "C:\\Users\\demol\\Source\\Repos\\BigGoGetters1\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
+      "packagesPath": "C:\\Users\\demol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\demol\\Source\\Repos\\BigGoGetters1\\Assignment1Attempt4\\Assignment1Attempt4\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\demol\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11713,7 +11708,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11774,7 +11768,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
