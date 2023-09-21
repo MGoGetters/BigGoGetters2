@@ -16,15 +16,15 @@ public class UploadModel : PageModel
     {
         if (Picture != null && Picture.Length > 0)
         {
-
-            var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            var userName = HttpContext.User.Identity.Name;
+            var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "pfpimages");
 
             if (!Directory.Exists(uploadsDirectory))
             {
                 Directory.CreateDirectory(uploadsDirectory);
             }
 
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(Picture.FileName);
+            var fileName = $"{userName}{Path.GetExtension(Picture.FileName)}";
             var filePath = Path.Combine(uploadsDirectory, fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
@@ -32,7 +32,7 @@ public class UploadModel : PageModel
                 await Picture.CopyToAsync(stream);
             }
 
-            PicturePath = $"/uploads/{fileName}";
+            PicturePath = $"/pfpimages/{fileName}";
         }
     }
 }
