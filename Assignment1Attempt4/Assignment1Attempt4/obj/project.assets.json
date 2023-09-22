@@ -11688,24 +11688,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\micha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Zackw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\Desktop\\Repos\\CS3750PersonalAssignments\\GroupProjectBackupOrSomethingIDK\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
+      "projectUniqueName": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
       "projectName": "Assignment1Attempt4",
-      "projectPath": "C:\\Users\\micha\\Desktop\\Repos\\CS3750PersonalAssignments\\GroupProjectBackupOrSomethingIDK\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
-      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micha\\Desktop\\Repos\\CS3750PersonalAssignments\\GroupProjectBackupOrSomethingIDK\\Assignment1Attempt4\\Assignment1Attempt4\\obj\\",
+      "projectPath": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
+      "packagesPath": "C:\\Users\\Zackw\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Zackw\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11713,7 +11708,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
