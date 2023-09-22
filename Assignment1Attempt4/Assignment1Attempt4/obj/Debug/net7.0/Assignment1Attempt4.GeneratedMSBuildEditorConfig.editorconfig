@@ -9,93 +9,93 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Assignment1Attempt4
 build_property.RootNamespace = Assignment1Attempt4
-build_property.ProjectDir = C:\Users\Zackw\source\repos\BigGoGetters\Assignment1Attempt4\Assignment1Attempt4\
+build_property.ProjectDir = C:\Users\micha\Desktop\Repos\CS3750PersonalAssignments\GroupProjectBackupOrSomethingIDK\Assignment1Attempt4\Assignment1Attempt4\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Zackw\source\repos\BigGoGetters\Assignment1Attempt4\Assignment1Attempt4
+build_property.MSBuildProjectDirectory = C:\Users\micha\Desktop\Repos\CS3750PersonalAssignments\GroupProjectBackupOrSomethingIDK\Assignment1Attempt4\Assignment1Attempt4
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/CardPage/Cards.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/CardPage/Cards.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQ2FyZFBhZ2VcQ2FyZHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Professor/ProfessorHome.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Professor/ProfessorHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcUHJvZmVzc29yXFByb2Zlc3NvckhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/ProfileTestPage/Profile.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/ProfileTestPage/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcUHJvZmlsZVRlc3RQYWdlXFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Student/StudentHome.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/Student/StudentHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU3R1ZGVudFxTdHVkZW50SG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/UploadPage/Upload.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/UploadPage/Upload.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcVXBsb2FkUGFnZVxVcGxvYWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/UserManagement/UserInfoEdit.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/UserManagement/UserInfoEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcVXNlck1hbmFnZW1lbnRcVXNlckluZm9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_AuthLayout.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_AuthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX0F1dGhMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/Home/Index.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/Home/Privacy.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/Error.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/_ViewImports.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/_ViewStart.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Zackw/source/repos/BigGoGetters/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/_Layout.cshtml]
+[C:/Users/micha/Desktop/Repos/CS3750PersonalAssignments/GroupProjectBackupOrSomethingIDK/Assignment1Attempt4/Assignment1Attempt4/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-iycb08poc7

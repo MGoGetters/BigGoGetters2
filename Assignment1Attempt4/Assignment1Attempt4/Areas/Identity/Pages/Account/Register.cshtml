@@ -47,6 +47,9 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
+                <input asp-for="Input.BirthDate" asp-format="{0:yyyy-MM-dd}" />
+            </div>
+            <div class="form-floating mb-3">
                 <input type="radio" name="radio"  id="stu" value="Student" checked />Student<br />
                 <input type="radio" name="radio" id="prof" value="Professor" />Professor<br />
             </div>

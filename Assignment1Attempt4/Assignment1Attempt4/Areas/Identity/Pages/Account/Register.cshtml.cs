@@ -69,6 +69,12 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
+        /// 
+
+
+
+        
+
         public class InputModel
         {
             [Required]
@@ -80,6 +86,19 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
+
+
+
+            [Required]
+            [Display(Name = "Birth Date")]
+            [BindProperty, DataType(DataType.Date)]
+            public DateTime BirthDate { get; set; }
+
+
+
+
+
+
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -135,6 +154,8 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
+
+                user.BirthDate = Input.BirthDate;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
