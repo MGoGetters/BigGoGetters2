@@ -1,0 +1,114 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.PAddClasses.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Classes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Classes.ID" />
+            <div class="form-group">
+                <label asp-for="Classes.ClassName" class="control-label">Class Name</label>
+                <input asp-for="Classes.ClassName" class="form-control" />
+                <span asp-validation-for="Classes.ClassName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <!--<label asp-for="Classes.Department" class="control-label"></label>-->
+                <!--<input asp-for="Classes.Department" class="form-control" />-->
+                <!--<span asp-validation-for="Classes.Department" class="text-danger"></span>-->
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "CS",
+                        Value = "CS"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "EE",
+                        Value = "EE"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Math",
+                        Value = "Math"
+                    });
+                }
+
+                <label asp-for="Classes.Department" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Classes.Department, listItems, "", new { htmlAttributes = new { @class = "form-control", } })
+
+                <span asp-validation-for="Classes.Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.Location" class="control-label"></label>
+                <input asp-for="Classes.Location" class="form-control" />
+                <span asp-validation-for="Classes.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.PFName" class="control-label">Professor First Name</label>
+                <input asp-for="Classes.PFName" class="form-control" />
+                <span asp-validation-for="Classes.PFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.PLName" class="control-label">Professor Last Name</label>
+                <input asp-for="Classes.PLName" class="form-control" />
+                <span asp-validation-for="Classes.PLName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.StartTime" class="control-label">Start Time</label>
+                <input asp-for="Classes.StartTime" class="form-control" />
+                <span asp-validation-for="Classes.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.EndTime" class="control-label">End Time</label>
+                <input asp-for="Classes.EndTime" class="form-control" />
+                <span asp-validation-for="Classes.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Classes.Monday" /> @Html.DisplayNameFor(model => model.Classes.Monday)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Classes.Tuesday" /> @Html.DisplayNameFor(model => model.Classes.Tuesday)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Classes.Wednesday" /> @Html.DisplayNameFor(model => model.Classes.Wednesday)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Classes.Thursday" /> @Html.DisplayNameFor(model => model.Classes.Thursday)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Classes.Friday" /> @Html.DisplayNameFor(model => model.Classes.Friday)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

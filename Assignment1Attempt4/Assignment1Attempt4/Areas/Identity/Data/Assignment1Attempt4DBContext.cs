@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Assignment1Attempt4.Areas.Identity.Data.Model;
 
 namespace Assignment1Attempt4.Data;
 
@@ -19,4 +20,6 @@ public class Assignment1Attempt4DBContext : IdentityDbContext<Assignment1Attempt
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+    public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.Classes> Classes { get; set; } = default!;
 }

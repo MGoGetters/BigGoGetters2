@@ -1,0 +1,103 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.PAddClasses.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Class Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Location)
+            </th>
+            <th>
+                Professor First Name
+            </th>
+            <th>
+                Professor Last Name
+            </th>
+            <th>
+                Start Time
+            </th>
+            <th>
+                End Time
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Monday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Tuesday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Wednesday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Thursday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Friday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Classes) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PLName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tuesday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wednesday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thursday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Friday)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
