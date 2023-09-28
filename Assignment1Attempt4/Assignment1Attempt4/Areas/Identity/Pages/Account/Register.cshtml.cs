@@ -73,13 +73,13 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account
 
 
 
-        
+
 
         public class InputModel
         {
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name ="First Name")]
+            [Display(Name = "First Name")]
             public string FirstName { get; set; }
 
             [Required]
@@ -94,6 +94,11 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account
             [BindProperty, DataType(DataType.Date)]
             public DateTime BirthDate { get; set; }
 
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "profOrStudent")]
+            public string profOrStudent { get; set; }
 
 
 
@@ -156,6 +161,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account
                 user.LastName = Input.LastName;
 
                 user.BirthDate = Input.BirthDate;
+                user.profOrStudent = Input.profOrStudent;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

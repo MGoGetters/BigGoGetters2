@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\mypie\\Documents\\3750\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj": {}
+    "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj": {}
   },
   "projects": {
-    "D:\\mypie\\Documents\\3750\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj": {
+    "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mypie\\Documents\\3750\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
+        "projectUniqueName": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
         "projectName": "Assignment1Attempt4",
-        "projectPath": "D:\\mypie\\Documents\\3750\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
-        "packagesPath": "C:\\Users\\mypie\\.nuget\\packages\\",
-        "outputPath": "D:\\mypie\\Documents\\3750\\Assignment1Attempt4\\Assignment1Attempt4\\obj\\",
+        "projectPath": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\Assignment1Attempt4.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mypie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

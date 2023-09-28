@@ -21,5 +21,9 @@ public class Assignment1Attempt4User : IdentityUser
     [PersonalData]
     [Column(TypeName = "DateTime")]
     public DateTime BirthDate { get; set; }
+
+    [PersonalData]
+    [Column(TypeName = "nvarchar(100)")]
+    public string profOrStudent { get; set; }
 }
 
