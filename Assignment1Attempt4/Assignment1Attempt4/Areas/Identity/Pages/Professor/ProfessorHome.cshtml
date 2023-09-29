@@ -1,10 +1,14 @@
 ﻿@page
 @model Assignment1Attempt4.Areas.Identity.Pages.Professor.ProfessorHomeModel
 @{
-    ViewData["Title"] = "Welcome";
+    ViewData["Title"] = "ProfessorHome";
 }
 
-<div class="text-center">
-    <h1 class="display-4">You are a professor!</h1>
+<div class="text-center">    
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <p>User ID: @ViewData["UserID"]</p>
+
+    <!--<p>First Name: @ViewData["LastName"]</p>-->
+    <p>Full Name: @ViewData["FirstName"] @ViewData["LastName"]</p>
 </div>

@@ -6,4 +6,40 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <p>User ID: @ViewData["UserID"]</p>
+
+    <p>Full Name: @ViewData["FirstName"] @ViewData["LastName"]</p>
+
+    <body>
+        <h3>Current Pages</h3>
+        <div align="left">
+            <ul>
+                <li><a href="https://localhost:7177/" target="_blank">Index</a></li>
+                <li><a href="https://localhost:7177/Identity/Calendar/Calendar" target="_blank">Calendar</a></li>
+                <li><a href="https://localhost:7177/" target="_blank">Page</a></li>
+            </ul>
+        </div>
+        <br />
+        <div align="left">
+            <ul>
+                <li><a href="https://localhost:7177/UserManagement/UserInfoEdit" target="_blank">Edit User Info - needs crud to make functional</a></li>
+                <li><a href="https://localhost:7177/UploadPage/Upload" target="_blank">Image Upload</a></li>
+                <li><a href="https://localhost:7177/Professor/ProfessorHome" target="_blank">Professor Home</a></li>
+                <li><a href="https://localhost:7177/ProfileTestPage/Profile" target="_blank">Profile Test Page</a></li>
+                <li><a href="https://localhost:7177/Identity/Student/RegisterForClass" target="_blank">Class Registration</a></li>
+                <li><a href="https://localhost:7177/Identity/StudentHome" target="_blank">Student Home</a></li>
+                <li><a href="https://localhost:7177/" target="_blank">Page</a></li>
+            </ul>
+         </div>
+         <br />
+         <div align="left">
+            <ul>
+                <li><a href="https://localhost:7177/Identity/CardPage/Cards" target="_blank">Class Dummy Cards</a></li>
+                <li><a href="https://localhost:7177/Identity/PAddClasses/" target="_blank">Index List Classes</a></li>
+                <li><a href="https://localhost:7177/Identity/PAddClasses/Create" target="_blank">Create Classes</a></li>
+                <li><a href="https://localhost:7177/Identity/PAddClasses/Delete" target="_blank">Delete Classes</a></li>
+                <li><a href="https://localhost:7177/Identity/PAddClasses/Edit" target="_blank">Edit Classes</a></li>
+                <li><a href="https://localhost:7177/" target="_blank">Page</a></li>
+            </ul>
+        </div>
+    </body>
 </div>

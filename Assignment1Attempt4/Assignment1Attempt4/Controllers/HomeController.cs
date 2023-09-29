@@ -19,9 +19,39 @@ namespace Assignment1Attempt4.Controllers
             this._userManager = userManager;
         }
 
-        public IActionResult Index()
+        /*public IActionResult Index()
         {
             ViewData["UserID"]=_userManager.GetUserId(this.User);
+            return View();
+        }*/
+
+        public IActionResult Index()
+        {
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
+            ViewData["FirstName"] = _userManager.GetUserId(this.User);
+            ViewData["LastName"] = _userManager.GetUserId(this.User);
+
+            var userid = _userManager.GetUserId(this.User);
+            var myUser = _userManager.Users.Where(x => x.Id == userid).ToList()[0];
+            
+            ViewData["UserID"] = myUser.UserName;
+            ViewData["FirstName"] = myUser.FirstName;
+            ViewData["LastName"] = myUser.LastName;
+            return View();
+        }
+
+        public IActionResult ProfessorHome()
+        {
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
+            ViewData["FirstName"] = _userManager.GetUserId(this.User);
+            ViewData["LastName"] = _userManager.GetUserId(this.User);
+
+            var userid = _userManager.GetUserId(this.User);
+            var myUser = _userManager.Users.Where(x => x.Id == userid).ToList()[0];
+
+            ViewData["UserID"] = myUser.UserName;
+            ViewData["FirstName"] = myUser.FirstName;
+            ViewData["LastName"] = myUser.LastName;
             return View();
         }
 
