@@ -16,7 +16,23 @@
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth'
+                initialView: 'dayGridMonth',
+                events: @Html.Raw(Json.Serialize(Model.Events)),
+                eventClick: function (info) {
+                    var event = info.event;
+                    var alertMessage = 'Event: ' + event.title + '\n' +
+                        'Department: ' + event.extendedProps.department + '\n' +
+                        'Location: ' + event.extendedProps.location + '\n' +
+                        'PFName: ' + event.extendedProps.pfName + '\n' +
+                        'PLName: ' + event.extendedProps.plName + '\n' +
+                        'Monday: ' + event.extendedProps.monday + '\n' +
+                        'Tuesday: ' + event.extendedProps.tuesday + '\n' +
+                        'Wednesday: ' + event.extendedProps.wednesday + '\n' +
+                        'Thursday: ' + event.extendedProps.thursday + '\n' +
+                        'Friday: ' + event.extendedProps.friday;
+
+                    alert(alertMessage);
+                }
             });
             calendar.render();
         });
