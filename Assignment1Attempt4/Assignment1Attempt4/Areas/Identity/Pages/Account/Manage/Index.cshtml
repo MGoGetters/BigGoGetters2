@@ -3,8 +3,20 @@
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
+    var userName = PageContext.HttpContext.User.Identity.Name;
+    var picturePath = $"/pfpimages/{userName}.jpg";
+
+    if (!string.IsNullOrEmpty(picturePath))
+    {
+     //   <h1>Welcome to Your Profile @userName</h1>
+        <img src="@picturePath" alt="Profile Picture" width="500" height="400">
+    }
+    else
+    {
+        <p>No profile picture available.</p>
+    }
 }
-<h1>Oh Shit It Works</h1>
+
 <h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">

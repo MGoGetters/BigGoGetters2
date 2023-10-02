@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Zackw\\Source\\Repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\Zack@Demo.com.jpg",
+      "PackagePath": "staticwebassets\\pfpimages\\Zack@Demo.com.jpg"
+    },
+    {
       "Id": "C:\\Users\\Zackw\\Source\\Repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\test@test.jfif",
       "PackagePath": "staticwebassets\\pfpimages\\test@test.jfif"
     },

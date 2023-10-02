@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r5s1QczrBIVCTEioKfEzDCmxxUKBV7x61VUkBKQqkG0=",
+  "Hash": "VeGB+X31i9bmD6At64yQ+oJFNislDrOtzmv7GWi5neI=",
   "Source": "Assignment1Attempt4",
   "BasePath": "_content/Assignment1Attempt4",
   "Mode": "Default",
@@ -2123,6 +2123,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\pfpimages\\test@test.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Zackw\\Source\\Repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\pfpimages\\Zack@Demo.com.jpg",
+      "SourceId": "Assignment1Attempt4",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zackw\\Source\\Repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4\\wwwroot\\",
+      "BasePath": "_content/Assignment1Attempt4",
+      "RelativePath": "pfpimages/Zack@Demo.com.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pfpimages\\Zack@Demo.com.jpg"
     }
   ]
 }
