@@ -2,103 +2,105 @@
 @model Assignment1Attempt4.Areas.Identity.Pages.Student.RegisterForClassModel
 @{
     ViewData["Title"] = "RegisterClasses";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="text-center">
     <h1 class="display-4">So, you wanna register for classes, eh?</h1>
-    <!-- <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> -->
 </div>
             
-<div class="container text-center">
-    <!-- Row 1 -->
-    <div class="row">
-        <!-- Column 1 -->
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">CS 3350</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Arpit Christi</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Building: NB 234</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Time: 11:30 AM - 1:20 PM</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Tues/Thur</h6>
-                    <form id ="registerClass1" method="post">
-                        <button type="button">Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Column 2 -->
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">CS 3750</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Arpit Christi</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Building: NB 234</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Time: 11:30 AM - 1:20 PM</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Mon/Wed</h6>
-                    <form id="registerClass2" method="post">
-                        <button type="button">Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Column 3 -->
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">CS 3030</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Arpit Christi</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Building: NB 232</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Time: 11:30 AM - 1:20 PM</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Tues/Thur</h6>
-                    <form id="registerClass3" method="post">
-                        <button type="button">Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Column 4 -->
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">CS 3280</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Placeholder</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Building: NB 232</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Time: 3:00 PM - 5:20 PM</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Friday</h6>
-                    <form id="registerClass4" method="post">
-                        <button type="button">Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Row 2 -->
-    <div class="row">
-        <!-- Column 1 -->
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">CS 3230</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Placeholder</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Building: NB 234</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Time: 11:30 AM - 1:20 PM</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Friday</h6>
-                    <form id="registerClass5" method="post">
-                        <button type="button" disabled>Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<h1>Class List</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Class Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes[0].Location)
+            </th>
+            <th>
+                Professor First Name
+            </th>
+            <th>
+                Professor Last Name
+            </th>
+            <th>
+                Start Time
+            </th>
+            <th>
+                End Time
+            </th>
+            <th>
+                M
+            </th>
+            <th>
+                T
+            </th>
+            <th>
+                W
+            </th>
+            <th>
+                Th
+            </th>
+            <th>
+                F
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Classes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PFName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PLName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tuesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wednesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thursday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Friday)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Register</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Drop</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
