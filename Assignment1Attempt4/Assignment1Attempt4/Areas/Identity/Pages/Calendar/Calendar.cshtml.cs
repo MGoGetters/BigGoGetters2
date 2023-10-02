@@ -88,7 +88,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Calendar
                         Title = classInfo.ClassName,
                         Start = eventStart,
                         End = eventEnd,
-                        ClassName = "class-event",
+                        ClassName = "",
                         Department = classInfo.Department,
                         Location = classInfo.Location,
                         PFName = classInfo.PFName,
