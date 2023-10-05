@@ -6,14 +6,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">So, you wanna register for classes, eh?</h1>
+    <h1 class="display-4">Classes for Registration</h1>
 </div>
-            
-<h1>Class List</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -97,8 +93,8 @@
                     @Html.DisplayFor(modelItem => item.Friday)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Register</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Drop</a> |
+                    <a asp-page="./RegisterForClass" asp-route-id="@item.ID">Register</a> |
+                    <a asp-page="./RegisterForClass" asp-route-id="@item.ID">Drop</a> |
                 </td>
             </tr>
         }
