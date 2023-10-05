@@ -1,0 +1,72 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Assignments</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Assignments.ID" />
+            <div class="form-group">
+                <label asp-for="Assignments.AssignmentName" class="control-label"></label>
+                <input asp-for="Assignments.AssignmentName" class="form-control" />
+                <span asp-validation-for="Assignments.AssignmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.Description" class="control-label"></label>
+                <input asp-for="Assignments.Description" class="form-control" />
+                <span asp-validation-for="Assignments.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.MaxPoints" class="control-label"></label>
+                <input asp-for="Assignments.MaxPoints" class="form-control" />
+                <span asp-validation-for="Assignments.MaxPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.DueDate" class="control-label"></label>
+                <input asp-for="Assignments.DueDate" class="form-control" />
+                <span asp-validation-for="Assignments.DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "File Input",
+                        Value = "FileInput"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Zip",
+                        Value = "Zip"
+                    });
+                }
+
+                <label asp-for="Assignments.AssignmentType" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Assignments.AssignmentType, listItems, "", new { htmlAttributes = new { @class = "form-control", } })
+                <span asp-validation-for="Assignments.AssignmentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.ClassesID" class="control-label"></label>
+                <input asp-for="Assignments.ClassesID" class="form-control" />
+                <span asp-validation-for="Assignments.ClassesID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
