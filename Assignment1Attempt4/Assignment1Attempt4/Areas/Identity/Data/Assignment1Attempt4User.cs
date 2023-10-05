@@ -25,5 +25,10 @@ public class Assignment1Attempt4User : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string profOrStudent { get; set; }
+
+    [PersonalData]
+    [Column(TypeName ="int")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int UserNumber { get; set; }
 }
 
