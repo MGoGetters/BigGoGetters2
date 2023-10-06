@@ -14,6 +14,9 @@ builder.Services.AddDefaultIdentity<Assignment1Attempt4User>(options => options.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+//makes session work, otherwise breaks everything DO NOT TOUCH UNLESS YOU KNOW WHAT YOUR DOING (I sure dont)
+builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache();
 
 var app = builder.Build();
 
@@ -36,5 +39,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+app.UseSession();
 
 app.Run();

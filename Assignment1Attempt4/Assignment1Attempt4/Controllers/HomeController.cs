@@ -27,16 +27,22 @@ namespace Assignment1Attempt4.Controllers
 
         public IActionResult Index()
         {
-            ViewData["UserID"] = _userManager.GetUserId(this.User);
+            /*ViewData["UserID"] = _userManager.GetUserId(this.User);
             ViewData["FirstName"] = _userManager.GetUserId(this.User);
-            ViewData["LastName"] = _userManager.GetUserId(this.User);
+            ViewData["LastName"] = _userManager.GetUserId(this.User);*/
 
             var userid = _userManager.GetUserId(this.User);
             var myUser = _userManager.Users.Where(x => x.Id == userid).ToList()[0];
-            
+
+            HttpContext.Session.SetString("CurrentFName", myUser.FirstName);
+            HttpContext.Session.SetString("CurrentLName", myUser.LastName);
+            HttpContext.Session.SetString("StuOrProf", myUser.profOrStudent);
+
+
             ViewData["UserID"] = myUser.UserName;
-            ViewData["FirstName"] = myUser.FirstName;
-            ViewData["LastName"] = myUser.LastName;
+            ViewData["FirstName"] = HttpContext.Session.GetString("CurrentFName");
+            ViewData["LastName"] = HttpContext.Session.GetString("CurrentLName");
+            ViewData["StuOrProf"] = HttpContext.Session.GetString("StuOrProf");
             return View();
         }
 
