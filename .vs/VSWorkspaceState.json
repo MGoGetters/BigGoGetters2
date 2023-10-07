@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Assignment1Attempt4",
+    "\\Assignment1Attempt4\\Assignment1Attempt4",
+    "\\Assignment1Attempt4\\Assignment1Attempt4\\Areas",
+    "\\Assignment1Attempt4\\Assignment1Attempt4\\Areas\\Identity",
+    "\\Assignment1Attempt4\\Assignment1Attempt4\\Areas\\Identity\\Pages",
+    "\\Assignment1Attempt4\\Assignment1Attempt4\\Areas\\Identity\\Pages\\AssignmentUpload"
   ],
-  "SelectedNode": "\\Assignment1Attempt4.sln",
+  "SelectedNode": "\\Assignment1Attempt4\\Assignment1Attempt4\\Areas\\Identity\\Pages\\AssignmentUpload\\AssignmentUpload.cshtml",
   "PreviewInSolutionExplorer": false
 }
