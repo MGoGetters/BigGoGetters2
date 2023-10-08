@@ -51,6 +51,15 @@
     </dl>
 </div>
 <div>
+    <a asp-page="/AssignmentUpload/AssignmentUpload"
+       asp-route-assignmentName="@Model.Assignments.AssignmentName"
+       asp-route-description="@Model.Assignments.Description"
+       asp-route-maxPoints="@Model.Assignments.MaxPoints"
+       asp-route-dueDate="@Model.Assignments.DueDate"
+       asp-route-assignmentType="@Model.Assignments.AssignmentType"
+       asp-route-classesID="@Model.Assignments.ClassesID">Upload Assignment</a>
+</div>
+<div>
     <a asp-page="./Edit" asp-route-id="@Model.Assignments?.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

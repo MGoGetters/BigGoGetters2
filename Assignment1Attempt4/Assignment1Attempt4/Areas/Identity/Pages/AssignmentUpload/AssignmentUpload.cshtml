@@ -7,45 +7,135 @@
     var stuOrProf = HttpContext.Session.GetString("StuOrProf");
     var submissionsDirectory = Directory.GetCurrentDirectory() + "/wwwroot/submissions";
     var filesInSubmissions = Directory.GetFiles(submissionsDirectory);
+    var assignmentName = Request.Query["assignmentName"];
+    var description = Request.Query["description"];
+    var maxPoints = Request.Query["maxPoints"];
+    var dueDate = Request.Query["dueDate"];
+    var assignmentType = Request.Query["assignmentType"];
+    var classesID = Request.Query["classesID"];
 }
 
-<p>First Name: @firstName</p>
-<p>Last Name: @lastName</p>
-<p>User Type: @stuOrProf</p>
-
 <h1>@ViewData["Title"]</h1>
+
+@if (!string.IsNullOrEmpty(assignmentName))
+{
+    <h2>Assignment Information:</h2>
+    <ul>
+        <li><strong>Assignment Name:</strong> @assignmentName</li>
+        <li><strong>Description:</strong> @description</li>
+        <li><strong>Max Points:</strong> @maxPoints</li>
+        <li><strong>Due Date:</strong> @dueDate</li>
+        <li><strong>Assignment Type:</strong> @assignmentType</li>
+        <li><strong>Classes ID:</strong> @classesID</li>
+    </ul>
+}
 
 @if (stuOrProf == "Student")
 {
     <form method="post" enctype="multipart/form-data">
-        <div class="form-group">
+        <input type="hidden" name="assignmentName" value="@assignmentName" />
+
+        <h2>Submit Assignment:</h2>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="useText" name="useText">
+            <label class="form-check-label" for="useText">Enter Text</label>
+        </div>
+
+        <div class="form-group" id="textEntry" style="display:none;">
+            <label for="textInput">Enter Text:</label>
+            <textarea class="form-control" id="textInput" name="textInput" rows="4"></textarea>
+        </div>
+
+        <div class="form-group" id="fileEntry">
             <label for="textFile">Upload Text File:</label>
             <input type="file" class="form-control-file" id="textFile" name="textFile">
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var useTextCheckbox = document.getElementById('useText');
+            var textEntry = document.getElementById('textEntry');
+            var fileEntry = document.getElementById('fileEntry');
+
+            useTextCheckbox.addEventListener('change', function () {
+                if (useTextCheckbox.checked) {
+                    textEntry.style.display = 'block';
+                    fileEntry.style.display = 'none';
+                } else {
+                    textEntry.style.display = 'none';
+                    fileEntry.style.display = 'block';
+                }
+            });
+        });
+    </script>
 
     @if (!string.IsNullOrEmpty(Model.TextFilePath))
     {
         <h2>Uploaded Text File:</h2>
         <a href="@Model.TextFilePath" download>Download Text File</a>
+        <br />
+        <button class="btn btn-secondary" onclick="window.location.reload();">Resubmit</button>
     }
 }
+
+
 else if (stuOrProf == "Professor")
 {
     <h2>List of Files in Submissions Directory:</h2>
-    <ul>
-        @foreach (var filePath in filesInSubmissions)
-        {
-            var parts = filePath.Split('/');
-            var fileName = parts[parts.Length - 1];
-            <li>
-                <a href="/submissions/@fileName" download>@fileName</a>
-            </li>
-        }
-    </ul>
+    var assignmentSubmissionPath = submissionsDirectory + "/" + assignmentName;
+    if (Directory.Exists(assignmentSubmissionPath))
+    {
+        <ul>
+            @foreach (var filePath in Directory.GetFiles(assignmentSubmissionPath))
+            {
+                var fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
+                <li>
+                    <a href="/submissions/@fileName" download>@fileName</a>
+                    <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
+                    <div style="display: none; padding-top: 10px;">
+                        <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
+                        <button class="btn btn-danger mt-2" onclick="closeFile(this)">Close</button>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Students Are Lazy, No Submissions Yet</p>
+    }
 }
 
 <div>
-    <a href="/Identity/ProfileTestPage/Profile">Go to Profile Page</a>
+    <a href="/Identity/AssignmentPages/">Go to Assignment Index Page</a>
 </div>
+
+<script>
+    function viewFile(button) {
+        var fileName = button.getAttribute("data-file");
+        var url = "/submissions/" + fileName;
+
+        // Fetch the file content
+        fetch(url)
+            .then(response => response.text())
+            .then(content => {
+                // Set the content in the textarea
+                var textareaId = "fileContent_" + fileName;
+                document.getElementById(textareaId).value = content;
+                // Show the textarea
+                var fileContentDiv = document.getElementById(textareaId).parentElement;
+                fileContentDiv.style.display = "block";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function closeFile(button) {
+        var fileContentDiv = button.parentElement;
+        fileContentDiv.style.display = "none";
+    }
+</script>

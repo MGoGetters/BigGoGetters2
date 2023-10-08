@@ -12,21 +12,47 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentUpload
         [BindProperty]
         public IFormFile TextFile { get; set; }
 
+        // Add a property for the entered text
+        [BindProperty]
+        public string TextInput { get; set; }
+
         public string TextFilePath { get; private set; }
+
 
         public async Task OnPostAsync()
         {
-            if (TextFile != null && TextFile.Length > 0)
+            var assignmentName = Request.Form["assignmentName"];
+
+            if (!string.IsNullOrEmpty(TextInput))
             {
+                // If text is entered, save it as a text file
                 var userName = HttpContext.User.Identity.Name;
-                var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "submissions");
+                var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "submissions", assignmentName);
 
                 if (!Directory.Exists(uploadsDirectory))
                 {
                     Directory.CreateDirectory(uploadsDirectory);
                 }
 
-                var fileName = $"{userName}_{DateTime.Now:yyyyMMddHHmmss}.txt"; //will find out a better naming mechanism in the future.
+                var fileName = $"{userName}_{DateTime.Now:yyyyMMddHHmmss}.txt";
+                var filePath = Path.Combine(uploadsDirectory, fileName);
+
+                await System.IO.File.WriteAllTextAsync(filePath, TextInput);
+
+                TextFilePath = $"/submissions/{assignmentName}/{fileName}";
+            }
+            else if (TextFile != null && TextFile.Length > 0)
+            {
+                // If a file is uploaded, save it as before
+                var userName = HttpContext.User.Identity.Name;
+                var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "submissions", assignmentName);
+
+                if (!Directory.Exists(uploadsDirectory))
+                {
+                    Directory.CreateDirectory(uploadsDirectory);
+                }
+
+                var fileName = $"{userName}_{DateTime.Now:yyyyMMddHHmmss}.txt";
                 var filePath = Path.Combine(uploadsDirectory, fileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -34,7 +60,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentUpload
                     await TextFile.CopyToAsync(stream);
                 }
 
-                TextFilePath = $"/submissions/{fileName}";
+                TextFilePath = $"/submissions/{assignmentName}/{fileName}";
             }
         }
     }
