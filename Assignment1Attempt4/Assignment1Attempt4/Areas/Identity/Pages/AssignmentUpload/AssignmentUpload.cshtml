@@ -52,8 +52,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var useTextCheckbox = document.getElementById('useText');
@@ -71,13 +69,12 @@
             });
         });
     </script>
-
+    </form>
     @if (!string.IsNullOrEmpty(Model.TextFilePath))
     {
         <h2>Uploaded Text File:</h2>
         <a href="@Model.TextFilePath" download>Download Text File</a>
         <br />
-        <button class="btn btn-secondary" onclick="window.location.reload();">Resubmit</button>
     }
 }
 
@@ -117,15 +114,11 @@ else if (stuOrProf == "Professor")
     function viewFile(button) {
         var fileName = button.getAttribute("data-file");
         var url = "/submissions/" + fileName;
-
-        // Fetch the file content
         fetch(url)
             .then(response => response.text())
             .then(content => {
-                // Set the content in the textarea
                 var textareaId = "fileContent_" + fileName;
                 document.getElementById(textareaId).value = content;
-                // Show the textarea
                 var fileContentDiv = document.getElementById(textareaId).parentElement;
                 fileContentDiv.style.display = "block";
             })
