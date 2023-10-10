@@ -30,25 +30,28 @@
                 Professor Last Name
             </th>
             <th>
+                ProfessorID
+            </th>
+            <th>
                 Start Time
             </th>
             <th>
                 End Time
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Classes[0].Monday)
+                M
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Classes[0].Tuesday)
+                T
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Classes[0].Wednesday)
+                W
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Classes[0].Thursday)
+                TH
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Classes[0].Friday)
+                F
             </th>
             <th></th>
         </tr>
@@ -71,6 +74,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PLName)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfessorID)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartTime)
             </td>

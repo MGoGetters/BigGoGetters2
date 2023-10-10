@@ -33,6 +33,10 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.PAddClasses
         {
             int testDate = DateTime.Compare(Classes.StartTime, Classes.EndTime);
 
+            Classes.ProfessorID = HttpContext.Session.GetInt32("UserID").Value;
+            Classes.PFName = HttpContext.Session.GetString("CurrentFName");
+            Classes.PLName = HttpContext.Session.GetString("CurrentLName");
+
             //if start time is later than end time it returns a 1
             if (testDate > 0)
             {
@@ -47,7 +51,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.PAddClasses
                 ModelState.AddModelError("Classes.EndTime", "End Time cannot be earlier than Start Time");
             }
 
-          if (!ModelState.IsValid || _context.Classes == null || Classes == null)
+            if (_context.Classes == null || Classes == null)
             {
                 return Page();
             }

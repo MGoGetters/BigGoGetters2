@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Assignment1Attempt4.Areas.Identity.Data.Model
 {
@@ -19,6 +20,7 @@ namespace Assignment1Attempt4.Areas.Identity.Data.Model
         public Boolean Wednesday { get; set; }
         public Boolean Thursday { get; set; }
         public Boolean Friday { get; set; }
+        public int ProfessorID {  get; set; }
 
     }
 }

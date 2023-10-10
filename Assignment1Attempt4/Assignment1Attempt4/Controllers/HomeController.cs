@@ -37,7 +37,7 @@ namespace Assignment1Attempt4.Controllers
             HttpContext.Session.SetString("CurrentFName", myUser.FirstName);
             HttpContext.Session.SetString("CurrentLName", myUser.LastName);
             HttpContext.Session.SetString("StuOrProf", myUser.profOrStudent);
-
+            HttpContext.Session.SetInt32("UserID", myUser.UserNumber);
 
             ViewData["UserID"] = myUser.UserName;
             ViewData["FirstName"] = HttpContext.Session.GetString("CurrentFName");
