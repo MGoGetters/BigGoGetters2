@@ -21,6 +21,7 @@ public class Assignment1Attempt4DBContext : IdentityDbContext<Assignment1Attempt
         // Add your customizations after calling base.OnModelCreating(builder);
     }
 
+    public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.StudentsInClasses> StudentsInClasses { get; set; } = default!;
     public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.Classes> Classes { get; set; } = default!;
 
     public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.Assignments> Assignments { get; set; } = default!;
