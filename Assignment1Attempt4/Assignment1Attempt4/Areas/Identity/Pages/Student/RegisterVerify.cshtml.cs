@@ -14,47 +14,25 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
             _context = context;
         }
 
-        public IList<Classes> Classes { get; set; } = default!;
+        public Classes Classes { get; set; } = default!;
 
-        public async Task OnGetAsync()
-        {
-            if (_context.Classes != null)
-            {
-                Classes = await _context.Classes.ToListAsync();
-            }
-
-            StudentsInClasses studclasTest = new StudentsInClasses();
-            studclasTest.StudentID = HttpContext.Session.GetInt32("UserID").Value;
-            studclasTest.ClassesID = 457;
-
-            _context.StudentsInClasses.Add(studclasTest);
-            await _context.SaveChangesAsync();
-
-            //return RedirectToPage("./RegisterForClass");
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Classes == null)
             {
                 return NotFound();
             }
-            var classes = await _context.Classes.FindAsync(id);
 
-            if (classes != null)
+            var classes = await _context.Classes.FirstOrDefaultAsync(m => m.ID == id);
+            if (classes == null)
+            {
+                return NotFound();
+            }
+            else
             {
                 Classes = classes;
-
-                StudentsInClasses studclasTest = new StudentsInClasses();
-                //studclasTest.StudentID = HttpContext.Session.GetInt32("UserID").Value;
-                studclasTest.StudentID = 600;
-                studclasTest.ClassesID = 600;
-
-                _context.StudentsInClasses.Add(studclasTest);
-                await _context.SaveChangesAsync();
             }
-
-            return RedirectToPage("./RegisterForClass");
+            return Page();
         }
 
     }
