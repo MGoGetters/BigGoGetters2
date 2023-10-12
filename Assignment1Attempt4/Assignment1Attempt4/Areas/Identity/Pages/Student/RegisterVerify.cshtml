@@ -1,0 +1,95 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.Student.RegisterVerifyModel
+@{
+    ViewData["Title"] = "Register For Class";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Are you sure you would like to register for this class?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Class Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.ClassName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Location)
+        </dd>
+        <dt class="col-sm-2">
+            Professor First Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.PFName)
+        </dd>
+        <dt class="col-sm-2">
+            Professor Last Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.PLName)
+        </dd>
+        <dt class="col-sm-2">
+            ProfessorID
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.ProfessorID)
+        </dd>
+        <dt class="col-sm-2">
+            Start Time
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            End Time
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.EndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Monday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Monday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Tuesday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Tuesday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Wednesday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Wednesday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Thursday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Thursday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classes.Friday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classes.Friday)
+        </dd>
+    </dl>
+    <form>
+        <input type="submit" value="Register" class="btn btn-primary" 
+    </form>
+</div>

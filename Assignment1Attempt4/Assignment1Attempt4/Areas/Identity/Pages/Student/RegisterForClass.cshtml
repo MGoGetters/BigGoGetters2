@@ -93,8 +93,8 @@
                     @Html.DisplayFor(modelItem => item.Friday)
                 </td>
                 <td>
-                    <a asp-page="./RegisterForClass" asp-route-id="@item.ID">Register</a> |
-                    <a asp-page="./RegisterForClass" asp-route-id="@item.ID">Drop</a> |
+                    <a asp-page="./RegisterVerify" asp-route-id="@item.ID">Register</a> |
+                    <a asp-page="./DropClass" asp-route-id="@item.ID">Drop</a>
                 </td>
             </tr>
         }
