@@ -15,11 +15,10 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
         }
 
         public Classes Classes { get; set; } = default!;
-        public IList<Classes> Assoc_Class { get; set; } = default!;
 
-        public async Task OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
-            /*if (id == null || _context.Classes == null)
+            if (id == null || _context.Classes == null)
             {
                 return NotFound();
             }
@@ -33,19 +32,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
             {
                 Classes = classes;
             }
-            return Page();*/
-
-            if (_context.Classes != null)
-            {
-                Assoc_Class = await _context.Classes.ToListAsync();
-            }
-
-            StudentsInClasses studclasTest = new StudentsInClasses();
-            studclasTest.StudentID = HttpContext.Session.GetInt32("UserID").Value;
-            studclasTest.ClassesID = 707;
-
-            _context.StudentsInClasses.Add(studclasTest);
-            await _context.SaveChangesAsync();
+            return Page();
         }
 
     }
