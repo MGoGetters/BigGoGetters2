@@ -22,15 +22,6 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
             {
                 Classes = await _context.Classes.ToListAsync();
             }
-
-            StudentsInClasses studclasTest = new StudentsInClasses();
-            studclasTest.StudentID = HttpContext.Session.GetInt32("UserID").Value;
-            studclasTest.ClassesID = 807;
-            
-            _context.StudentsInClasses.Add(studclasTest);
-            await _context.SaveChangesAsync();
-
-            //return RedirectToPage("./RegisterForClass");
         }
     }
 }

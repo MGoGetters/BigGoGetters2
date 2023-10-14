@@ -24,6 +24,8 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
             }
 
             var classes = await _context.Classes.FirstOrDefaultAsync(m => m.ID == id);
+            HttpContext.Session.SetInt32("RClassID", classes.ID);
+
             if (classes == null)
             {
                 return NotFound();
@@ -32,7 +34,20 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
             {
                 Classes = classes;
             }
+
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            StudentsInClasses studclasTest = new StudentsInClasses();
+            studclasTest.StudentID = HttpContext.Session.GetInt32("UserID").Value;
+            studclasTest.ClassesID = HttpContext.Session.GetInt32("RClassID").Value;
+
+            _context.StudentsInClasses.Add(studclasTest);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./RegisterForClass");
         }
 
     }
