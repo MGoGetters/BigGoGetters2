@@ -39,8 +39,22 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Calendar
         public void OnGet()
         {
             Events = new List<CalendarEvent>();
-            int ProfessorIDtest = HttpContext.Session.GetInt32("UserID").Value; 
-            var classInfoList = _context.Classes.Where(c => c.ProfessorID == ProfessorIDtest).ToList();
+            var stuOrProf = HttpContext.Session.GetString("StuOrProf");
+            List<Assignment1Attempt4.Areas.Identity.Data.Model.Classes> classInfoList = new List<Assignment1Attempt4.Areas.Identity.Data.Model.Classes>(); // Initialize an empty list
+
+            if (stuOrProf == "Professor")
+            {
+                int ProfessorIDtest = HttpContext.Session.GetInt32("UserID").Value;
+                classInfoList = _context.Classes.Where(c => c.ProfessorID == ProfessorIDtest).ToList();
+            }
+            else if (stuOrProf == "Student")
+            {
+                int StudentID = HttpContext.Session.GetInt32("UserID").Value;
+                var studentClasses = _context.StudentsInClasses.Where(sc => sc.StudentID == StudentID).Select(sc => sc.ClassesID);
+                classInfoList = _context.Classes.Where(c => studentClasses.Contains(c.ID)).ToList();
+            }
+
+        
 
             DateTime endDate = new DateTime(2023, 12, 14);
 
