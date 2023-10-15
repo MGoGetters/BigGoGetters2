@@ -39,9 +39,10 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Calendar
         public void OnGet()
         {
             Events = new List<CalendarEvent>();
-            var classInfoList = _context.Classes.ToList();
+            int ProfessorIDtest = HttpContext.Session.GetInt32("UserID").Value; 
+            var classInfoList = _context.Classes.Where(c => c.ProfessorID == ProfessorIDtest).ToList();
 
-            DateTime endDate = new DateTime(2023, 12, 14); // I guess you have to set it for a day after last desired day. 
+            DateTime endDate = new DateTime(2023, 12, 14);
 
             foreach (var classInfo in classInfoList)
             {
@@ -69,7 +70,6 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Calendar
                 }
             }
         }
-
         private void AddEvent(Assignment1Attempt4.Areas.Identity.Data.Model.Classes classInfo, DateTime startTime, DateTime endTime, DayOfWeek dayOfWeek, DateTime endDate)
         {
             DateTime eventStart = startTime;
