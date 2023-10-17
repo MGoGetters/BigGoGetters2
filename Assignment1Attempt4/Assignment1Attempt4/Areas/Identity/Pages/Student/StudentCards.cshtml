@@ -1,0 +1,28 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.Student.StudentCardsModel
+@{
+    ViewData["Title"] = "StudentCards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model.Classes)
+{
+    <div class="prof-dashboard-card text-center">
+           <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Class: @Html.DisplayFor(modelItem => item.ClassName)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        Class Location: @Html.DisplayFor(modelItem => item.Location)
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        Class Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+                    </h6>
+                </div>
+           </div>
+    </div> 
+    <br>
+}
