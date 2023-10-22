@@ -56,6 +56,8 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.PAddClasses
                 return Page();
             }
 
+            //Code refactor D:
+
             _context.Classes.Add(Classes);
             await _context.SaveChangesAsync();
 
