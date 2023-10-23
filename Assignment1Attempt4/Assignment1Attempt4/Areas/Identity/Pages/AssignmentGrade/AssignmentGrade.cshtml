@@ -63,7 +63,9 @@
 <div>Last Name: @lastName</div>
 
 @{
+
     string filePath = "wwwroot/submissions/" + fileName; 
+    var relativePath = filePath.Replace("wwwroot/submissions", "submissions");
     if (System.IO.File.Exists(filePath))
     {
         string fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
@@ -76,8 +78,8 @@
         }
         else
         {
-
-            <div>This is not a .txt file. <a href="@Url.Content(filePath)" download>Download</a></div>
+            <div>@filePath</div>
+            <div>This is not a .txt file. <a href="@Url.Content("~/" + relativePath)" download>Download</a></div>
         }
     }
     else

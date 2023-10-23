@@ -89,19 +89,29 @@ else if (stuOrProf == "Professor")
             @foreach (var filePath in Directory.GetFiles(assignmentSubmissionPath))
             {
                 var fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
-                <li>
-                    <a href="/submissions/@fileName" download>@fileName</a>
-                    <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
-                    <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
-                    <div style="display: none; padding-top: 10px;">
-                        <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
-                        <button class="btn btn-danger mt-2" onclick="closeFile(this)">Close</button>
-                    </div>
-                </li>
+
+                if (fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+                {
+                    <li>
+                        <a href="/submissions/@fileName" download>@fileName</a>
+                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
+                        <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
+                        <div style="display: none; padding-top: 10px;">
+                            <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
+                            <button class="btn btn-danger mt-2" onclick="closeFile(this)">Close</button>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="/submissions/@fileName" download>@fileName</a>
+                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
+                    </li>
+                }
             }
         </ul>
     }
-}
     else
     {
         <p>Students Are Lazy, No Submissions Yet</p>
