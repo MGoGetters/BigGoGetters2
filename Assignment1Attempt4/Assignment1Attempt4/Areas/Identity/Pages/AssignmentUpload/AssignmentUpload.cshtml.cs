@@ -28,8 +28,10 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentUpload
             {
                 Directory.CreateDirectory(uploadsDirectory);
             }
+            var firstName = HttpContext.Session.GetString("CurrentFName");
+            var lastName = HttpContext.Session.GetString("CurrentLName");
 
-            var fileName = $"{userName}_{DateTime.Now:yyyyMMddHHmmss}.txt";
+            var fileName = $"{firstName}_{lastName}_{DateTime.Now:yyyyMMddHHmmss}.txt"; 
             var filePath = Path.Combine(uploadsDirectory, fileName);
 
             if (!string.IsNullOrEmpty(TextInput))

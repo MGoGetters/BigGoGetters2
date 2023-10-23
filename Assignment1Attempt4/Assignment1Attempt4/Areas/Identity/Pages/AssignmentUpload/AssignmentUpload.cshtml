@@ -91,6 +91,7 @@ else if (stuOrProf == "Professor")
                 var fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
                 <li>
                     <a href="/submissions/@fileName" download>@fileName</a>
+                    <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
                     <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
                     <div style="display: none; padding-top: 10px;">
                         <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
@@ -100,6 +101,7 @@ else if (stuOrProf == "Professor")
             }
         </ul>
     }
+}
     else
     {
         <p>Students Are Lazy, No Submissions Yet</p>

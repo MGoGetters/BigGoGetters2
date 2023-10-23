@@ -1,0 +1,123 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.Account.AssignmentGrade.AssignmentGradeModel
+
+@{
+    var fileName = Request.Query["fileName"].ToString();
+    var assignmentName = Request.Query["assignmentName"].ToString();
+    var description = Request.Query["description"].ToString();
+    var maxPoints = Request.Query["maxPoints"].ToString();
+    var dueDate = Request.Query["dueDate"].ToString();
+    var assignmentType = Request.Query["assignmentType"].ToString();
+    var classesID = Request.Query["classesID"].ToString();
+}
+
+@{
+    int startIndex = fileName.IndexOf('\\') + 1;
+    int firstUnderscoreIndex = fileName.IndexOf('_', startIndex);
+    string firstName = "";
+    string lastName = "";
+    string submissionDate = "";
+
+    if (startIndex > 0 && firstUnderscoreIndex > startIndex)
+    {
+        firstName = fileName.Substring(startIndex, firstUnderscoreIndex - startIndex);
+
+        int secondUnderscoreIndex = fileName.IndexOf('_', firstUnderscoreIndex + 1);
+        if (secondUnderscoreIndex > 0)
+        {
+            lastName = fileName.Substring(firstUnderscoreIndex + 1, secondUnderscoreIndex - firstUnderscoreIndex - 1);
+            submissionDate = fileName.Substring(secondUnderscoreIndex + 1);
+            submissionDate = System.IO.Path.GetFileNameWithoutExtension(submissionDate);
+            DateTime parsedDate;
+            if (DateTime.TryParseExact(submissionDate, "yyyyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedDate))
+            {
+                submissionDate = parsedDate.ToString("MM/dd/yyyy HH:mm:ss");
+            }
+            else
+            {
+                <h1>something went wrong</h1>
+            }
+        }
+    }
+    else
+    {
+        <h1>something went wrong</h1>
+    }
+}
+
+@if (!string.IsNullOrEmpty(assignmentName))
+{
+    <h2>Submission Information:</h2>
+    <ul>
+        <li><strong>Assignment Name:</strong> @assignmentName</li>
+        <li><strong>Submitted By:</strong> @firstName @lastName</li>
+        <li><strong>Submission Date:</strong> @submissionDate</li>
+        <li><strong>Due Date:</strong> @dueDate</li>
+        <li><strong>Max Points:</strong> @maxPoints</li>
+        <li><strong>Assignment Type:</strong> @assignmentType</li>
+        <li><strong>Classes ID:</strong> @classesID</li>
+    </ul>
+}
+
+<div>First Name: @firstName</div>
+<div>Last Name: @lastName</div>
+
+@{
+    string filePath = "wwwroot/submissions/" + fileName; 
+    if (System.IO.File.Exists(filePath))
+    {
+        string fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
+
+        if (fileExtension == ".txt")
+        {
+            string fileContent = System.IO.File.ReadAllText(filePath);
+            <div>File Content:</div>
+            <pre>@fileContent</pre>
+        }
+        else
+        {
+
+            <div>This is not a .txt file. <a href="@Url.Content(filePath)" download>Download</a></div>
+        }
+    }
+    else
+    {
+        <div>File not found.</div>
+    }
+}
+<div>
+    <label for="grade">Enter a grade:</label>
+    <input type="number" id="grade" name="grade" min="0" max="@maxPoints" step="1" />
+    <button id="submitGrade">Submit Grade</button>
+</div>
+<div>
+    <p id="assignmentGrade"></p>
+    <p id="errorText" style="color: red;"></p>
+</div>
+
+<script>
+    const gradeInput = document.getElementById('grade');
+    const submitButton = document.getElementById('submitGrade');
+    const assignmentGradeDisplay = document.getElementById('assignmentGrade');
+    const errorText = document.getElementById('errorText');
+    const classID = "@classesID";
+    const firstName = "@firstName";
+    const lastName = "@lastName";
+
+    submitButton.addEventListener('click', function () {
+        const grade = parseInt(gradeInput.value);
+
+        if (isNaN(grade) || grade > parseInt("@maxPoints")) {
+            errorText.textContent = "Invalid grade. Please enter a valid grade within the allowed range.";
+            assignmentGradeDisplay.innerHTML = "";
+        } else {
+            errorText.textContent = "";
+            const assignmentGrade = `ClassID: ${classID}<br>
+            FirstName: ${firstName}<br>
+            LastName: ${lastName}<br>
+            Assignment Grade: ${grade}<br>
+            AssignmentID: TBD`;
+            assignmentGradeDisplay.innerHTML = assignmentGrade;
+        }
+    });
+</script>
