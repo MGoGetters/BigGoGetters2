@@ -59,8 +59,6 @@
     </ul>
 }
 
-<div>First Name: @firstName</div>
-<div>Last Name: @lastName</div>
 
 @{
 
@@ -78,7 +76,7 @@
         }
         else
         {
-            <div>@filePath</div>
+
             <div>This is not a .txt file. <a href="@Url.Content("~/" + relativePath)" download>Download</a></div>
         }
     }
