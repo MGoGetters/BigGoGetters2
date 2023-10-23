@@ -25,6 +25,8 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            ViewData["ClassID"] = HttpContext.Session.GetInt32("ClassID").Value;
+
             if (id == null || _context.Assignments == null)
             {
                 return NotFound();
@@ -43,7 +45,9 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            Assignments.ClassesID = HttpContext.Session.GetInt32("ClassID").Value;
+
+            if (_context.Assignments == null || Assignments == null)
             {
                 return Page();
             }
@@ -66,7 +70,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./ProfCards");
         }
 
         private bool AssignmentsExists(int id)

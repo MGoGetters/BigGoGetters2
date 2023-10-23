@@ -54,6 +54,6 @@
     <form method="post">
         <input type="hidden" asp-for="Assignments.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./ProfClassPage" asp-route-id="@ViewData["ClassID"]">Go back to Class Page</a>
     </form>
 </div>

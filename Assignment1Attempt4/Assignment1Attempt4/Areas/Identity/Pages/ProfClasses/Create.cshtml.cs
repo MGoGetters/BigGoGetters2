@@ -21,6 +21,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
 
         public IActionResult OnGet()
         {
+            ViewData["ClassID"] = HttpContext.Session.GetInt32("ClassID").Value;
             return Page();
         }
 
@@ -31,7 +32,9 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Assignments == null || Assignments == null)
+            Assignments.ClassesID = HttpContext.Session.GetInt32("ClassID").Value;
+
+            if (_context.Assignments == null || Assignments == null)
             {
                 return Page();
             }
@@ -39,7 +42,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             _context.Assignments.Add(Assignments);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./ProfCards");
         }
     }
 }
