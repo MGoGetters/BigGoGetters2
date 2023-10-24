@@ -1,0 +1,28 @@
+﻿/***********************************************************
+* This style will go on StudentCards.cshtml
+* Currently being used on StudentHome.cshtml for testing
+***********************************************************/
+
+ /* Production */
+body {
+    margin-bottom: 60px;
+}
+
+h3 {
+    padding-bottom: 7px;
+}
+
+/* Testgrounds */
+.card {
+    float: left;
+    width: 18rem;
+    border: 5px solid cyan;
+}
+
+.prof-dashboard-card.text-center {
+    border: 5px solid red;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows */
+    gap: 10px;
+}

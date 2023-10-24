@@ -25,7 +25,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
 
         //public IList<StudentsInClasses> StudentsInClasses { get; set; } = default!;
 
-       public IList<Classes> Classes { get; set; } = default!;
+        public IList<Classes> Classes { get; set; } = default!;
         public IList<StudentsInClasses> StudentsInClasses { get; set; } = default!;
 
 
