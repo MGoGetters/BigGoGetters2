@@ -1,0 +1,71 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.ProfClasses.ProfClassPageModel
+@{
+}
+
+<h1>Welcome to @Html.DisplayFor(model => model.Classes.ClassName)</h1>
+
+<div>
+	<h4>Assignments</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignments.AssignmentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignments.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignments.MaxPoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignments.DueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignments.AssignmentType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignments.ClassesID)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.assignments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignmentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxPoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignmentType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassesID)
+                    </td>
+                    <td>
+                        <!--Need to make these work, may have to copy and paste the assignment pages into this folder for easier access-->
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!--Works but could be better, may have to copy and paste the assignment pages into this folder for easier access-->
+    <p>
+        <a asp-page="Create">Create New Assignment</a>
+        <!--<button type="button" class="btn" onclick="window.location.href = 'https://localhost:7177/Identity/AssignmentPages/Create'">Create Assignment</button>-->
+    </p>
+</div>

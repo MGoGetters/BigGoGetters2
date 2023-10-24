@@ -10,27 +10,27 @@ using Assignment1Attempt4.Data;
 
 namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly Assignment1Attempt4.Data.Assignment1Attempt4DBContext _context;
 
-        public DeleteModel(Assignment1Attempt4.Data.Assignment1Attempt4DBContext context)
+        public DetailsModel(Assignment1Attempt4.Data.Assignment1Attempt4DBContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-      public Assignments Assignments { get; set; } = default!;
+      public Assignments Assignments { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            ViewData["ClassID"] = HttpContext.Session.GetInt32("ClassID").Value;
+
             if (id == null || _context.Assignments == null)
             {
                 return NotFound();
             }
 
             var assignments = await _context.Assignments.FirstOrDefaultAsync(m => m.ID == id);
-
             if (assignments == null)
             {
                 return NotFound();
@@ -40,24 +40,6 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
                 Assignments = assignments;
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null || _context.Assignments == null)
-            {
-                return NotFound();
-            }
-            var assignments = await _context.Assignments.FindAsync(id);
-
-            if (assignments != null)
-            {
-                Assignments = assignments;
-                _context.Assignments.Remove(Assignments);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }
