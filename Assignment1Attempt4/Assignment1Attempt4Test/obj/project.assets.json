@@ -2303,19 +2303,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zackw\\.nuget\\packages\\": {}
+    "C:\\Users\\demol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\Assignment1Attempt4Test.csproj",
+      "projectUniqueName": "C:\\Users\\demol\\OneDrive\\Documents\\GitHub\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\Assignment1Attempt4Test.csproj",
       "projectName": "Assignment1Attempt4Test",
-      "projectPath": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\Assignment1Attempt4Test.csproj",
-      "packagesPath": "C:\\Users\\Zackw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zackw\\source\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\obj\\",
+      "projectPath": "C:\\Users\\demol\\OneDrive\\Documents\\GitHub\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\Assignment1Attempt4Test.csproj",
+      "packagesPath": "C:\\Users\\demol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\demol\\OneDrive\\Documents\\GitHub\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Zackw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\demol\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2374,7 +2374,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
