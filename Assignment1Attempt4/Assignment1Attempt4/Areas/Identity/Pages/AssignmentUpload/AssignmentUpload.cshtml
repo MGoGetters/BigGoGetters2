@@ -13,6 +13,7 @@
     var dueDate = Request.Query["dueDate"];
     var assignmentType = Request.Query["assignmentType"];
     var classesID = Request.Query["classesID"];
+    var assignmentID = Request.Query["id"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -27,6 +28,7 @@
         <li><strong>Due Date:</strong> @dueDate</li>
         <li><strong>Assignment Type:</strong> @assignmentType</li>
         <li><strong>Classes ID:</strong> @classesID</li>
+        <li><strong>Assignment ID:</strong> @assignmentID</li>
     </ul>
 }
 
@@ -52,23 +54,23 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var useTextCheckbox = document.getElementById('useText');
-            var textEntry = document.getElementById('textEntry');
-            var fileEntry = document.getElementById('fileEntry');
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var useTextCheckbox = document.getElementById('useText');
+                var textEntry = document.getElementById('textEntry');
+                var fileEntry = document.getElementById('fileEntry');
 
-            useTextCheckbox.addEventListener('change', function () {
-                if (useTextCheckbox.checked) {
-                    textEntry.style.display = 'block';
-                    fileEntry.style.display = 'none';
-                } else {
-                    textEntry.style.display = 'none';
-                    fileEntry.style.display = 'block';
-                }
+                useTextCheckbox.addEventListener('change', function () {
+                    if (useTextCheckbox.checked) {
+                        textEntry.style.display = 'block';
+                        fileEntry.style.display = 'none';
+                    } else {
+                        textEntry.style.display = 'none';
+                        fileEntry.style.display = 'block';
+                    }
+                });
             });
-        });
-    </script>
+        </script>
     </form>
     @if (!string.IsNullOrEmpty(Model.TextFilePath))
     {
@@ -94,7 +96,7 @@ else if (stuOrProf == "Professor")
                 {
                     <li>
                         <a href="/submissions/@fileName" download>@fileName</a>
-                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
+                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID&id=@assignmentID">Grade Assignment</a>
                         <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
                         <div style="display: none; padding-top: 10px;">
                             <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
@@ -106,7 +108,7 @@ else if (stuOrProf == "Professor")
                 {
                     <li>
                         <a href="/submissions/@fileName" download>@fileName</a>
-                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
+                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID&id=@assignmentID">Grade Assignment</a>
                     </li>
                 }
             }
