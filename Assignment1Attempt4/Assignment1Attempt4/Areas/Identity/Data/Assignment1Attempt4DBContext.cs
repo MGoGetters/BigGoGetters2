@@ -25,4 +25,5 @@ public class Assignment1Attempt4DBContext : IdentityDbContext<Assignment1Attempt
     public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.Classes> Classes { get; set; } = default!;
 
     public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.Assignments> Assignments { get; set; } = default!;
+    public DbSet<Assignment1Attempt4.Areas.Identity.Data.Model.StudentSubmitsAssignment> StudentSubmitsAssignment { get; set; } = default!;
 }
