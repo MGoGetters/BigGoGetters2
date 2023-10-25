@@ -4,16 +4,21 @@
 ***********************************************************/
 
 /********************* Production *********************/
-/************ Elements Selectors ************/
+:root {
+    font-size: 16px;
+}
+
 body {
-    margin-bottom: 60px;
+    margin: 0 0 60px 0;
+    color: black;
+    background-color: white;
+    padding: 0;
 }
 
 h3 {
-    padding-bottom: 7px;
+    padding-bottom: 9px;
 }
 
-/************ Class Selectors ************/
 .card {
     width: 100%;
 }
@@ -23,7 +28,33 @@ h3 {
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
     grid-template-rows: repeat(3, 1fr); /* 3 rows */
     gap: 5px;
-    width: 75%;
+    width: 67%;
 }
 
 /* Testgrounds */
+.sidebar {
+    width: 5rem;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    /******************************************************************************
+    * If we want the black sidebar to stretch from top to bottom
+    width: 5rem;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    ******************************************************************************
+    /*********************************************************************************
+    * If we want the top and bottom banners to show completely and the black sidebar stops short of the top and bottom
+    width: 5rem;
+    position: absolute;
+    left: 0;
+    top: 56px;
+    bottom: 60px;
+    background-color: black;
+    *************************************************************************************/
+}
