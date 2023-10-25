@@ -88,7 +88,7 @@
     }
 }
 <div>
-    <form method="post">
+    <form id="gradeForm" method="post">
         <label for="grade">Enter a grade:</label>
         <input type="text" id="grade" name="grade" />
         <input type="hidden" name="assignmentID" value="@assignmentID" />
@@ -96,12 +96,13 @@
         <input type="hidden" name="firstName" value="@firstName" />
         <input type="hidden" name="lastName" value="@lastName" />
         <input type="hidden" name="assignmentName" value="@assignmentName" />
-        <button type="submit">Submit Grade</button>
+        <button type="button" id="showGrade">Show Grade</button>
     </form>
 </div>
-<div>
+<div id="gradeDisplay">
     <p id="assignmentGrade"></p>
     <p id="errorText" style="color: red;"></p>
+    <button type="button" id="confirmSubmit" style="display: none;">Confirm Submission</button>
 </div>
 
 <script>
@@ -109,28 +110,36 @@
         const gradeInput = document.getElementById('grade');
         const assignmentGradeDisplay = document.getElementById('assignmentGrade');
         const errorText = document.getElementById('errorText');
+        const showGradeButton = document.getElementById('showGrade');
+        const confirmSubmitButton = document.getElementById('confirmSubmit');
+        const gradeForm = document.getElementById('gradeForm');
 
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault();
-
+        showGradeButton.addEventListener('click', function () {
             const grade = parseFloat(gradeInput.value);
-            const assignmentID = parseInt(document.querySelector("input[name='assignmentID']").value);
             const maxPoints = parseFloat(document.querySelector("input[name='maxPoints']").value);
-            const firstName = document.querySelector("input[name='firstName']").value;
-            const lastName = document.querySelector("input[name='lastName']").value;
 
             if (isNaN(grade) || grade < 0 || grade > maxPoints) {
                 errorText.textContent = "Invalid grade. Please enter a valid grade within the allowed range.";
                 assignmentGradeDisplay.innerHTML = "";
             } else {
                 errorText.textContent = "";
+                const assignmentID = parseInt(document.querySelector("input[name='assignmentID']").value);
+                const firstName = document.querySelector("input[name='firstName']").value;
+                const lastName = document.querySelector("input[name='lastName']").value;
                 const assignmentGrade = `ClassID: ${assignmentID}<br>
                             FirstName: ${firstName}<br>
                             LastName: ${lastName}<br>
                             Assignment Grade: ${grade}<br>
                             AssignmentID: ${assignmentID}`;
                 assignmentGradeDisplay.innerHTML = assignmentGrade;
+
+                showGradeButton.style.display = "none";
+                confirmSubmitButton.style.display = "block";
             }
+        });
+
+        confirmSubmitButton.addEventListener('click', function () {
+            gradeForm.submit(); 
         });
     });
 </script>
