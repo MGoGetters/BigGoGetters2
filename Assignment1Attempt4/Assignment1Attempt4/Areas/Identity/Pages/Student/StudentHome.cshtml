@@ -2,21 +2,47 @@
 @model Assignment1Attempt4.Areas.Identity.Pages.Student.StudentHomeModel
 @{
     ViewData["Title"] = "StudentHome";
-    <!--  _Layout.cshtml used a few css sheets including bootstrap -->
 }
-<!--  This stylesheet is what gives the icons for the nav -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--  This class is for testing CSS for StudentCards.cshtml -->
-<!--  Once it's perfected, the CSS will be moved to StudentCards.cshtml -->
-<!--  And this class will be deleted. Happy programming :) -->
 <link rel="stylesheet" href="~/css/StudentCards.css"/>
 
 <nav class="sidebar">
-    <a href="https://localhost:7177/Identity/Account/Manage" target="_blank"><i class="fa fa-fw fa-gear"></i> Manage Account</a>
-    <a href="https://localhost:7177/Identity/Calendar/Calendar" target="_blank"><i class="fa fa-fw fa-calendar"></i> Calendar</a>
-    <a href="https://localhost:7177/Identity/ProfileTestPage/Profile" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i> Profile Homepage</a>
-    <a href="https://localhost:7177/Identity/Student/RegisterForClass" target="_blank"><i class="fa fa-fw fa fa-id-card-o"></i> Register For Classess</a>
-    <a href="https://localhost:7177/Identity/UploadPage/Upload" target="_blank"><i class="fa fa-fw fa-upload"></i> Upload Page</a>
+    <ul class="sidebar-nav">
+        <li class="nav-selector">
+            <a href="https://localhost:7177/Identity/Account/Manage" target="_blank" class="nav-link">
+                <i class="fa fa-fw fa-gear"></i>
+                <span class="link-text">Settings</span>
+            </a>
+        </li>
+
+        <li class="nav-selector">
+            <a href="https://localhost:7177/Identity/Calendar/Calendar" target="_blank" class="nav-link">
+                <i class="fa fa-fw fa-calendar"></i>
+                <span class="link-text">Calendar</span>
+            </a>
+        </li>
+
+        <li class="nav-selector">
+            <a href="https://localhost:7177/Identity/ProfileTestPage/Profile" target="_blank" class="nav-link">
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                <span class="link-text">Homepage</span>
+            </a>
+        </li>
+
+        <li class="nav-selector">
+            <a href="https://localhost:7177/Identity/Student/RegisterForClass" target="_blank" class="nav-link">
+                <i class="fa fa-fw fa fa-id-card-o"></i>
+                <span class="link-text">Register</span>
+            </a>
+        </li>
+
+        <li class="nav-selector">
+            <a href="https://localhost:7177/Identity/UploadPage/Upload" target="_blank" class="nav-link">
+                <i class="fa fa-fw fa-upload"></i>
+                <span class="link-text">Upload</span>
+            </a>
+        </li>
+    </ul>
 </nav>
 
 <h3 class="card-title">

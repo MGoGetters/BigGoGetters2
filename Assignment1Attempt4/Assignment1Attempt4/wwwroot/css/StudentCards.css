@@ -1,11 +1,10 @@
-﻿/***********************************************************
-* This style will go on StudentCards.cshtml
-* Currently being used on StudentHome.cshtml for testing
-***********************************************************/
-
-/********************* Production *********************/
-:root {
-    font-size: 16px;
+﻿:root {
+    font-size: 15px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
 }
 
 body {
@@ -31,30 +30,65 @@ h3 {
     width: 67%;
 }
 
-/* Testgrounds */
 .sidebar {
-    width: 5rem;
+    width: 4rem;
     height: 100vh;
     position: absolute;
     left: 0;
     top: 0;
     background-color: black;
-    /******************************************************************************
-    * If we want the black sidebar to stretch from top to bottom
-    width: 5rem;
-    height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: black;
-    ******************************************************************************
-    /*********************************************************************************
-    * If we want the top and bottom banners to show completely and the black sidebar stops short of the top and bottom
-    width: 5rem;
-    position: absolute;
-    left: 0;
-    top: 56px;
-    bottom: 60px;
-    background-color: black;
-    *************************************************************************************/
+    transition: width 200ms ease;
+    z-index: 2;
+}
+
+.sidebar-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar:hover {
+    width: 10rem;
+}
+
+.sidebar:hover .link-text {
+    display: block;
+    transition-delay: 1000ms;
+}
+
+.nav-selector {
+    width: 100%;
+    transition: opacity 500ms;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+.nav-link i{
+    min-width: 1rem;
+    margin: 0 0px;
+    color: fuchsia;
+    font-size: 25px;
+}
+
+.link-text{
+    display: none;
+    margin-left: 1rem;
+    transition: opacity 0.5s;
 }
