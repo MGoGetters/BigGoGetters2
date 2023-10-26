@@ -17,6 +17,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
 
         //public IList<StudentsInClasses> StudentsInClasses { get; set; } = default!;
 
+        public IList<Assignments> Assignments { get; set; } = default!;
         public IList<Classes> Classes { get; set; } = default!;
         public IList<StudentsInClasses> StudentsInClasses { get; set; } = default!;
 
@@ -38,7 +39,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Student
                 var studentClasses = _context.StudentsInClasses.Where(sc => sc.StudentID == StudentID).Select(sc => sc.ClassesID);
                 Classes = _context.Classes.Where(c => studentClasses.Contains(c.ID)).ToList();
 
-            }
+            }            
         }
     }
 }

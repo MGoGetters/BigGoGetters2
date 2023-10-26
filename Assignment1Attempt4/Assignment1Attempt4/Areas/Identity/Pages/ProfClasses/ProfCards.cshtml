@@ -5,9 +5,7 @@
 	Layout = "/Views/Shared/_Layout.cshtml";    
 }
 
-<!--Grab or write css from other cards
 
--->
 <h1>Professor Class List</h1>
 
 @foreach (var item in Model.Classes)
@@ -16,15 +14,15 @@
            <div class="card" style="width: 18rem;">
                 <div class="card-header">
                     <h5 class="card-title">
-                        Class: @Html.DisplayFor(modelItem => item.ClassName)
+                        @Html.DisplayFor(modelItem => item.ClassName)
                     </h5>
                 </div>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        Class Location: @Html.DisplayFor(modelItem => item.Location)
+                        Location: @Html.DisplayFor(modelItem => item.Location)
                     </h6>
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        Class Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+                        Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
                     </h6>
                 </div>
                 <div>
@@ -34,60 +32,3 @@
     </div> 
     <br>
 }
-
-
-<div>
-
-
-    <p>User ID: @ViewData["UserID"]</p>
-
-    <p>Full Name: @ViewData["FirstName"] @ViewData["LastName"]</p>
-
-    <div>
-        <h4 align="center">Current Pages</h4>
-
-        <div align="left">
-            <h4>/Account/Manage</h4>
-            <ul>
-                <li><a href="https://localhost:7177/Identity/Account/Manage" target="_blank">Account Manage Index</a></li>
-            </ul>
-        </div>
-
-        <div align="left">
-            <h4>Calender</h4>
-            <ul>
-                <li><a href="https://localhost:7177/Identity/Calendar/Calendar" target="_blank">Calendar</a></li>
-            </ul>
-        </div>
-
-        <div align="left">
-            <h4>Add Classes</h4>
-            <ul>
-                <li><a href="https://localhost:7177/Identity/PAddClasses/" target="_blank">Index List Classes</a></li>
-                <li><a href="https://localhost:7177/Identity/PAddClasses/Create" target="_blank">Create Classes</a></li>
-            </ul>
-        </div>
-
-        <div align="left">
-            <h4>ProfilePage</h4>
-            <ul>
-                <li><a href="https://localhost:7177/Identity/ProfileTestPage/Profile" target="_blank">Profile Homepage</a></li>
-            </ul>
-        </div>
-
-        <div align="left">
-            <h4>Upload Page</h4>
-            <ul>
-                <li><a href="https://localhost:7177/Identity/UploadPage/Upload" target="_blank">Upload Page</a></li>
-            </ul>
-        </div>
-
-        <div align="left">
-            <h4>User Management</h4>
-            <ul>
-                <li><a href="https://localhost:7177/Identity/UserManagement/UserInfoEdit" target="_blank">User Account Management Details - Needs c# to be functional</a></li>
-            </ul>
-        </div>
-    </div>
-
-</div>

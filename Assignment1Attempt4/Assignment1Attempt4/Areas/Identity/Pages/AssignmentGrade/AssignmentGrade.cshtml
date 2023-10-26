@@ -9,7 +9,6 @@
     var dueDate = Request.Query["dueDate"].ToString();
     var assignmentType = Request.Query["assignmentType"].ToString();
     var classesID = Request.Query["classesID"].ToString();
-    var assignmentID = Request.Query["id"].ToString();
 }
 
 @{
@@ -57,14 +56,13 @@
         <li><strong>Max Points:</strong> @maxPoints</li>
         <li><strong>Assignment Type:</strong> @assignmentType</li>
         <li><strong>Classes ID:</strong> @classesID</li>
-        <li><strong>Assignment ID:</strong> @assignmentID</li>
     </ul>
 }
 
 
 @{
 
-    string filePath = "wwwroot/submissions/" + fileName;
+    string filePath = "wwwroot/submissions/" + fileName; 
     var relativePath = filePath.Replace("wwwroot/submissions", "submissions");
     if (System.IO.File.Exists(filePath))
     {
@@ -88,58 +86,38 @@
     }
 }
 <div>
-    <form id="gradeForm" method="post">
-        <label for="grade">Enter a grade:</label>
-        <input type="text" id="grade" name="grade" />
-        <input type="hidden" name="assignmentID" value="@assignmentID" />
-        <input type="hidden" name="maxPoints" value="@maxPoints" />
-        <input type="hidden" name="firstName" value="@firstName" />
-        <input type="hidden" name="lastName" value="@lastName" />
-        <input type="hidden" name="assignmentName" value="@assignmentName" />
-        <button type="button" id="showGrade">Show Grade</button>
-    </form>
+    <label for="grade">Enter a grade:</label>
+    <input type="number" id="grade" name="grade" min="0" max="@maxPoints" step="1" />
+    <button id="submitGrade">Submit Grade</button>
 </div>
-<div id="gradeDisplay">
+<div>
     <p id="assignmentGrade"></p>
     <p id="errorText" style="color: red;"></p>
-    <button type="button" id="confirmSubmit" style="display: none;">Confirm Submission</button>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const gradeInput = document.getElementById('grade');
-        const assignmentGradeDisplay = document.getElementById('assignmentGrade');
-        const errorText = document.getElementById('errorText');
-        const showGradeButton = document.getElementById('showGrade');
-        const confirmSubmitButton = document.getElementById('confirmSubmit');
-        const gradeForm = document.getElementById('gradeForm');
+    const gradeInput = document.getElementById('grade');
+    const submitButton = document.getElementById('submitGrade');
+    const assignmentGradeDisplay = document.getElementById('assignmentGrade');
+    const errorText = document.getElementById('errorText');
+    const classID = "@classesID";
+    const firstName = "@firstName";
+    const lastName = "@lastName";
 
-        showGradeButton.addEventListener('click', function () {
-            const grade = parseFloat(gradeInput.value);
-            const maxPoints = parseFloat(document.querySelector("input[name='maxPoints']").value);
+    submitButton.addEventListener('click', function () {
+        const grade = parseInt(gradeInput.value);
 
-            if (isNaN(grade) || grade < 0 || grade > maxPoints) {
-                errorText.textContent = "Invalid grade. Please enter a valid grade within the allowed range.";
-                assignmentGradeDisplay.innerHTML = "";
-            } else {
-                errorText.textContent = "";
-                const assignmentID = parseInt(document.querySelector("input[name='assignmentID']").value);
-                const firstName = document.querySelector("input[name='firstName']").value;
-                const lastName = document.querySelector("input[name='lastName']").value;
-                const assignmentGrade = `ClassID: ${assignmentID}<br>
-                            FirstName: ${firstName}<br>
-                            LastName: ${lastName}<br>
-                            Assignment Grade: ${grade}<br>
-                            AssignmentID: ${assignmentID}`;
-                assignmentGradeDisplay.innerHTML = assignmentGrade;
-
-                showGradeButton.style.display = "none";
-                confirmSubmitButton.style.display = "block";
-            }
-        });
-
-        confirmSubmitButton.addEventListener('click', function () {
-            gradeForm.submit(); 
-        });
+        if (isNaN(grade) || grade > parseInt("@maxPoints")) {
+            errorText.textContent = "Invalid grade. Please enter a valid grade within the allowed range.";
+            assignmentGradeDisplay.innerHTML = "";
+        } else {
+            errorText.textContent = "";
+            const assignmentGrade = `ClassID: ${classID}<br>
+            FirstName: ${firstName}<br>
+            LastName: ${lastName}<br>
+            Assignment Grade: ${grade}<br>
+            AssignmentID: TBD`;
+            assignmentGradeDisplay.innerHTML = assignmentGrade;
+        }
     });
 </script>

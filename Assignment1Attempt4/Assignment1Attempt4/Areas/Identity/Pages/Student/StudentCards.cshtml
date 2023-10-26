@@ -4,74 +4,68 @@
     ViewData["Title"] = "StudentCards";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="~/css/StudentCards.css" />
 
-<nav class="sidebar">
-    <ul class="sidebar-nav">
-        <li class="nav-selector">
-            <a href="https://localhost:7177/Identity/Account/Manage" target="_blank" class="nav-link">
-                <i class="fa fa-fw fa-gear"></i>
-                <span class="link-text">Settings</span>
-            </a>
-        </li>
-
-        <li class="nav-selector">
-            <a href="https://localhost:7177/Identity/Calendar/Calendar" target="_blank" class="nav-link">
-                <i class="fa fa-fw fa-calendar"></i>
-                <span class="link-text">Calendar</span>
-            </a>
-        </li>
-
-        <li class="nav-selector">
-            <a href="https://localhost:7177/Identity/ProfileTestPage/Profile" target="_blank" class="nav-link">
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                <span class="link-text">Homepage</span>
-            </a>
-        </li>
-
-        <li class="nav-selector">
-            <a href="https://localhost:7177/Identity/Student/RegisterForClass" target="_blank" class="nav-link">
-                <i class="fa fa-fw fa fa-id-card-o"></i>
-                <span class="link-text">Register</span>
-            </a>
-        </li>
-
-        <li class="nav-selector">
-            <a href="https://localhost:7177/Identity/UploadPage/Upload" target="_blank" class="nav-link">
-                <i class="fa fa-fw fa-upload"></i>
-                <span class="link-text">Upload</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-
-<div class="prof-dashboard-card text-center">
-    @foreach (var item in Model.Classes)
-    {
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">
-                    Class: @Html.DisplayFor(modelItem => item.ClassName)
-                </h5>
-            </div>
-            <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Class Location: @Html.DisplayFor(modelItem => item.Location)
-                </h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Class Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
-                </h6>
-            </div>
-        </div>
+<style>
+    .rightside-list-header{
+        color: seagreen;
     }
-</div>
 
-<div>
-    <div align="left">
-        <h4>User Management</h4>
-        <ul>
-            <li><a href="https://localhost:7177/Identity/UserManagement/UserInfoEdit" target="_blank">User Account Management Details - Needs c# to be functional</a></li>
-        </ul>
+    .rightside-list {
+        width: auto;
+        position: fixed;
+        z-index: 1;
+        top: 70px;
+        right: 10px;
+        background: #eee;
+        overflow-x: hidden;
+        padding: 8px 0;
+    }
+</style>
+
+
+@foreach (var item in Model.Classes)
+{
+    <div class="prof-dashboard-card text-center">
+           <div class="card" style="width: 18rem;">
+               <div class="card-header">
+                   <h5 class="card-title">
+                       Class: @Html.DisplayFor(modelItem => item.ClassName)
+                   </h5>
+               </div>
+               <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-body-secondary">
+                       Class Location: @Html.DisplayFor(modelItem => item.Location)
+                   </h6>
+                   <h6 class="card-subtitle mb-2 text-body-secondary">
+                       Class Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+                   </h6>
+               </div>
+               <div>
+                   <a asp-page="./StudentClassPage" asp-route-id="@item.ID">Take me to Class</a>
+               </div>
+           </div>
+    </div> 
+    <br>
+}
+
+<div class="rightside-list">
+    <h4 class="rightside-list-header">Top 5 Prioties: Assignments</h4>
+    <div class="assignment-todo-list-dashboard-sidebar">
+        @foreach (var item in Model.Assignments)
+        {
+            <div class="assignment-todo-list-card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        @Html.DisplayFor(modelItem => item.AssignmentName)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        Due Date: @Html.DisplayFor(modelItem => item.DueDate) <br>
+                        Type: @Html.DisplayFor(modelItem => item.AssignmentType)
+                    </h6>
+                </div>
+            </div>
+        }
     </div>
 </div>
