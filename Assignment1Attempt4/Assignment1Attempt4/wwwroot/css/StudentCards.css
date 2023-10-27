@@ -18,16 +18,13 @@ h3 {
     padding-bottom: 9px;
 }
 
-.card {
-    width: 100%;
-}
-
 .prof-dashboard-card.text-center {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
     grid-template-rows: repeat(3, 1fr); /* 3 rows */
     gap: 5px;
     width: 67%;
+    height: 30rem;
 }
 
 .sidebar {
@@ -80,15 +77,35 @@ h3 {
     color: var(--text-secondary);
 }
 
-.nav-link i{
+.nav-link i {
     min-width: 1rem;
     margin: 0 0px;
     color: fuchsia;
     font-size: 25px;
 }
 
-.link-text{
+.link-text {
     display: none;
     margin-left: 1rem;
     transition: opacity 0.5s;
+}
+
+.rightside-list-header {
+    color: seagreen;
+}
+
+.rightside-list {
+    width: auto;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    right: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 10px;
+    border: 0 solid black;
+}
+
+.assignment-todo-list-card {
+    border: 1px solid black;
 }
