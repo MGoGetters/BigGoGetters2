@@ -59,6 +59,9 @@
                     Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
                 </h6>
             </div>
+            <div>
+                <a asp-page="./StudentClassPage" asp-route-id="@item.ID">Take me to Class</a>
+            </div>
         </div>
     }
 </div>
