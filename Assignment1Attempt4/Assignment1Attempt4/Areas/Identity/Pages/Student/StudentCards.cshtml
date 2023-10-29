@@ -48,21 +48,22 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    Class: @Html.DisplayFor(modelItem => item.ClassName)
+                    @Html.DisplayFor(modelItem => item.ClassName)
                 </h5>
             </div>
             <div class="card-body">
                 <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Class Location: @Html.DisplayFor(modelItem => item.Location)
+                    Location: @Html.DisplayFor(modelItem => item.Location)
                 </h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Class Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+                    Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
                 </h6>
             </div>
         </div>
     }
 </div>
 
+<!--look into making this a referenced file-->
 <div class="rightside-list">
     <h4 class="rightside-list-header">Top 5 Priorities: Assignments</h4>
     <div class="assignment-todo-list-dashboard-sidebar">
@@ -79,6 +80,9 @@
                         Due Date: @Html.DisplayFor(modelItem => item.DueDate) <br>
                         Type: @Html.DisplayFor(modelItem => item.AssignmentType)
                     </h6>
+                </div>
+                <div>
+                    <a asp-page="./StudentClassPage" asp-route-id="@item.ID">Take me to Class</a>
                 </div>
             </div>
         }
