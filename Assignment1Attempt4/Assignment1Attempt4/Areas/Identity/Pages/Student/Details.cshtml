@@ -1,9 +1,11 @@
 ﻿@page
-@model Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages.DetailsModel
+@model Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages.StudentDetailsModel
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var firstName = HttpContext.Session.GetString("CurrentFName");
+    var lastName = HttpContext.Session.GetString("CurrentLName");
 }
 
 <h1>Details</h1>
@@ -63,3 +65,271 @@
     <a asp-page="./Edit" asp-route-id="@Model.Assignments?.ID">Edit</a> |
     <a asp-page="./ProfClassPage" asp-route-id="@ViewData["ClassID"]">Go back to Class Page</a>
 </div>
+
+<!--BEGINNING OF ZACKS ADDITIONS-->
+
+
+<div id="gradePieChart" style="width: 400px; height: 300px;"></div>
+
+@{
+    var firstName1 = HttpContext.Session.GetString("CurrentFName");
+    var lastName1 = HttpContext.Session.GetString("CurrentLName");
+
+    var studentSubmission = Model.StudentSubmissions.FirstOrDefault(sub => sub.Fname == firstName1 && sub.Lname == lastName1);
+
+    double maxPoints1 = Model.Assignments.MaxPoints;
+    double studentGrade1 = studentSubmission != null ? studentSubmission.StudentGrade : 0;
+    double percentage1 = (studentGrade1 / maxPoints1) * 100;
+    string letterGrade1 = "";
+
+    if (percentage1 >= 94.00)
+    {
+        letterGrade1 = "A";
+    }
+    else if (percentage1 >= 90.00)
+    {
+        letterGrade1 = "A-";
+    }
+    else if (percentage1 >= 87.00)
+    {
+        letterGrade1 = "B+";
+    }
+    else if (percentage1 >= 84.00)
+    {
+        letterGrade1 = "B";
+    }
+    else if (percentage1 >= 80.00)
+    {
+        letterGrade1 = "B-";
+    }
+    else if (percentage1 >= 77.00)
+    {
+        letterGrade1 = "C+";
+    }
+    else if (percentage1 >= 74.00)
+    {
+        letterGrade1 = "C";
+    }
+    else if (percentage1 >= 70.00)
+    {
+        letterGrade1 = "C-";
+    }
+    else if (percentage1 >= 67.00)
+    {
+        letterGrade1 = "D+";
+    }
+    else if (percentage1 >= 64.00)
+    {
+        letterGrade1 = "D";
+    }
+    else if (percentage1 >= 60.00)
+    {
+        letterGrade1 = "D-";
+    }
+    else
+    {
+        letterGrade1 = "E";
+    }
+}
+
+<div>
+    @if (studentSubmission != null)
+    {
+        <h4>Student Information</h4>
+        <div>
+            <p>Name: @studentSubmission.Fname @studentSubmission.Lname</p>
+            <p>Grade: @studentSubmission.StudentGrade</p>
+            <p>Percentage: @percentage1.ToString("F2")%</p>
+        </div>
+    }
+    else
+    {
+        <p>No submission found for @firstName1 @lastName1</p>
+    }
+</div>
+
+<div>
+    <h4>Letter Grade</h4>
+    <p>Grade: @letterGrade1</p>
+</div>
+
+
+
+<!--IT IS A WARZONE AFTER THIS COMMENT-->
+
+
+<!--
+<div>
+   <h4>Student Submissions</h4>
+    <hr />
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student Grade</th>
+                <th>Percentage</th>
+                <th>Grade Category</th>
+            </tr>
+        </thead>
+        <tbody>
+
+-->
+<!--
+@{
+    int countA = 0;
+    int countAMinus = 0;
+    int countBPlus = 0;
+    int countB = 0;
+    int countBMinus = 0;
+    int countCPlus = 0;
+    int countC = 0;
+    int countCMinus = 0;
+    int countDPlus = 0;
+    int countD = 0;
+    int countDMinus = 0;
+    int countE = 0;
+}
+
+@foreach (var submission in Model.StudentSubmissions)
+{
+
+                    <tr>
+                        <td>@submission.Fname @submission.Lname</td>
+                        <td>@submission.StudentGrade</td>
+                        <td>
+            @{
+                double maxPoints = Model.Assignments.MaxPoints;
+                double studentGrade = submission.StudentGrade;
+                double percentage = (studentGrade / maxPoints) * 100;
+            }
+            @percentage.ToString("F2")%
+                        </td>
+                        <td>
+
+            @{
+                switch (percentage)
+                {
+                    case var p when p >= 94.00:
+                        <text>A</text>
+                        countA++;
+                        break;
+                    case var p when p >= 90.00:
+                        <text>A-</text>
+                        countAMinus++;
+                        break;
+                    case var p when p >= 87.00:
+                        <text>B+</text>
+                        countBPlus++;
+                        break;
+                    case var p when p >= 84.00:
+                        <text>B</text>
+                        countB++;
+                        break;
+                    case var p when p >= 80.00:
+                        <text>B-</text>
+                        countBMinus++;
+                        break;
+                    case var p when p >= 77.00:
+                        <text>C+</text>
+                        countCPlus++;
+                        break;
+                    case var p when p >= 74.00:
+                        <text>C</text>
+                        countC++;
+                        break;
+                    case var p when p >= 70.00:
+                        <text>C-</text>
+                        countCMinus++;
+                        break;
+                    case var p when p >= 67.00:
+                        <text>D+</text>
+                        countDPlus++;
+                        break;
+                    case var p when p >= 64.00:
+                        <text>D</text>
+                        countD++;
+                        break;
+                    case var p when p >= 60.00:
+                        <text>D-</text>
+                        countDMinus++;
+                        break;
+                    default:
+                        <text>E</text>
+                        countE++;
+                        break;
+                }
+            }
+                        </td>
+                    </tr>
+}
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Grade Counts</h4>
+    <p>A: @countA</p>
+    <p>A-: @countAMinus</p>
+    <p>B+: @countBPlus</p>
+    <p>B: @countB</p>
+    <p>B-: @countBMinus</p>
+    <p>C+: @countCPlus</p>
+    <p>C: @countC</p>
+    <p>C-: @countCMinus</p>
+    <p>D+: @countDPlus</p>
+    <p>D: @countD</p>
+    <p>D-: @countDMinus</p>
+    <p>E: @countE</p>
+</div>
+
+ -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Grade');
+        data.addColumn('number', 'Count');
+
+        data.addRow(['A', @countA]);
+        data.addRow(['A-', @countAMinus]);
+        data.addRow(['B+', @countBPlus]);
+        data.addRow(['B', @countB]);
+        data.addRow(['B-', @countBMinus]);
+        data.addRow(['C+', @countCPlus]);
+        data.addRow(['C', @countC]);
+        data.addRow(['C-', @countCMinus]);
+        data.addRow(['D+', @countDPlus]);
+        data.addRow(['D', @countD]);
+        data.addRow(['D-', @countDMinus]);
+        data.addRow(['E', @countE]);
+
+        var colors = [
+            '#00FF00',  
+            '#FFFF00',  
+            '#FFA500',  
+            '#FF0000',  
+            '#FF1493',  
+            '#FF4500',  
+            '#008000',  
+            '#0000FF',  
+            '#800080',  
+            '#2E8B57',  
+            '#000000',  
+            '#222222'   
+        ];
+
+        var options = {
+            slices: {
+                8: { offset: 0.2 }  
+            },
+            colors: colors
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('gradePieChart'));
+        chart.draw(data, options);
+    }
+</script>

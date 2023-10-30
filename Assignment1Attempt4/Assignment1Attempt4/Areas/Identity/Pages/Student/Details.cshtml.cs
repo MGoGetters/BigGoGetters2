@@ -19,27 +19,38 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             _context = context;
         }
 
-      public Assignments Assignments { get; set; } = default!; 
+        public Assignments Assignments { get; set; } = default!;
+        public List<StudentSubmitsAssignment> StudentSubmissions { get; set; } = new List<StudentSubmitsAssignment>();
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync()
         {
-            ViewData["ClassID"] = HttpContext.Session.GetInt32("ClassID").Value;
+            if (int.TryParse(Request.Query["id"], out int assignmentID))
+            {
+                ViewData["ClassID"] = HttpContext.Session.GetInt32("ClassID").Value;
 
-            if (id == null || _context.Assignments == null)
-            {
-                return NotFound();
+                if (_context.Assignments == null)
+                {
+                    return NotFound();
+                }
+
+                var assignments = await _context.Assignments.FirstOrDefaultAsync(m => m.ID == assignmentID);
+                if (assignments == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Assignments = assignments;
+                }
+
+                StudentSubmissions = await _context.StudentSubmitsAssignment
+                    .Where(submission => submission.assignmentID == assignmentID)
+                    .ToListAsync();
+
+                return Page();
             }
 
-            var assignments = await _context.Assignments.FirstOrDefaultAsync(m => m.ID == id);
-            if (assignments == null)
-            {
-                return NotFound();
-            }
-            else 
-            {
-                Assignments = assignments;
-            }
-            return Page();
+            return NotFound();
         }
     }
 }
