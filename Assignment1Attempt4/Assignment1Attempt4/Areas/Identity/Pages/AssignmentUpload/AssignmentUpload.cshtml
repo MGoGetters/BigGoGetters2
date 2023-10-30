@@ -13,45 +13,47 @@
     var dueDate = Request.Query["dueDate"];
     var assignmentType = Request.Query["assignmentType"];
     var classesID = Request.Query["classesID"];
+    var assignmentID = Request.Query["id"];
 }
 
 <h1>@ViewData["Title"]</h1>
 
 @if (!string.IsNullOrEmpty(assignmentName))
 {
-    <h2>Assignment Information:</h2>
-    <ul>
-        <li><strong>Assignment Name:</strong> @assignmentName</li>
-        <li><strong>Description:</strong> @description</li>
-        <li><strong>Max Points:</strong> @maxPoints</li>
-        <li><strong>Due Date:</strong> @dueDate</li>
-        <li><strong>Assignment Type:</strong> @assignmentType</li>
-        <li><strong>Classes ID:</strong> @classesID</li>
-    </ul>
+<h2>Assignment Information:</h2>
+<ul>
+    <li><strong>Assignment Name:</strong> @assignmentName</li>
+    <li><strong>Description:</strong> @description</li>
+    <li><strong>Max Points:</strong> @maxPoints</li>
+    <li><strong>Due Date:</strong> @dueDate</li>
+    <li><strong>Assignment Type:</strong> @assignmentType</li>
+    <li><strong>Classes ID:</strong> @classesID</li>
+    <li><strong>Assignment ID:</strong> @assignmentID</li>
+</ul>
 }
 
 @if (stuOrProf == "Student")
 {
-    <form method="post" enctype="multipart/form-data">
-        <input type="hidden" name="assignmentName" value="@assignmentName" />
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" name="assignmentName" value="@assignmentName" />
 
-        <h2>Submit Assignment:</h2>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="useText" name="useText">
-            <label class="form-check-label" for="useText">Enter Text</label>
-        </div>
+    <h2>Submit Assignment:</h2>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="useText" name="useText">
+        <label class="form-check-label" for="useText">Enter Text</label>
+    </div>
 
-        <div class="form-group" id="textEntry" style="display:none;">
-            <label for="textInput">Enter Text:</label>
-            <textarea class="form-control" id="textInput" name="textInput" rows="4"></textarea>
-        </div>
+    <div class="form-group" id="textEntry" style="display:none;">
+        <label for="textInput">Enter Text:</label>
+        <textarea class="form-control" id="textInput" name="textInput" rows="4"></textarea>
+    </div>
 
-        <div class="form-group" id="fileEntry">
-            <label for="textFile">Upload Text File:</label>
-            <input type="file" class="form-control-file" id="textFile" name="textFile">
-        </div>
+    <div class="form-group" id="fileEntry">
+        <label for="textFile">Upload Text File:</label>
+        <input type="file" class="form-control-file" id="textFile" name="textFile">
+    </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var useTextCheckbox = document.getElementById('useText');
@@ -69,56 +71,55 @@
             });
         });
     </script>
-    </form>
-    @if (!string.IsNullOrEmpty(Model.TextFilePath))
+</form>
+@if (!string.IsNullOrEmpty(Model.TextFilePath))
     {
-        <h2>Uploaded Text File:</h2>
-        <a href="@Model.TextFilePath" download>Download Text File</a>
-        <br />
+<h2>Uploaded Text File:</h2>
+<a href="@Model.TextFilePath" download>Download Text File</a>
+<br />
     }
 }
 
 
 else if (stuOrProf == "Professor")
 {
-    <h2>List of Files in Submissions Directory:</h2>
+<h2>List of Files in Submissions Directory:</h2>
     var assignmentSubmissionPath = submissionsDirectory + "/" + assignmentName;
     if (Directory.Exists(assignmentSubmissionPath))
     {
-        <ul>
-            @foreach (var filePath in Directory.GetFiles(assignmentSubmissionPath))
+<ul>
+    @foreach (var filePath in Directory.GetFiles(assignmentSubmissionPath))
             {
                 var fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
 
                 if (fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
                 {
-                    <li>
-                        <a href="/submissions/@fileName" download>@fileName</a>
-                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
-                        <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
-                        <div style="display: none; padding-top: 10px;">
-                            <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
-                            <button class="btn btn-danger mt-2" onclick="closeFile(this)">Close</button>
-                        </div>
-                    </li>
+    <li>
+        <a href="/submissions/@fileName" download>@fileName</a>
+        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID&id=@assignmentID">Grade Assignment</a>
+        <button class="btn btn-link" data-file="@fileName" onclick="viewFile(this)">View</button>
+        <div style="display: none; padding-top: 10px;">
+            <textarea id="fileContent_@fileName" style="width: 100%;"></textarea>
+            <button class="btn btn-danger mt-2" onclick="closeFile(this)">Close</button>
+        </div>
+    </li>
                 }
                 else
                 {
-                    <li>
-                        <a href="/submissions/@fileName" download>@fileName</a>
-                        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID">Grade Assignment</a>
-                    </li>
+    <li>
+        <a href="/submissions/@fileName" download>@fileName</a>
+        <a href="~/Identity/AssignmentGrade/AssignmentGrade?fileName=@fileName&assignmentName=@assignmentName&description=@description&maxPoints=@maxPoints&dueDate=@dueDate&assignmentType=@assignmentType&classesID=@classesID&id=@assignmentID">Grade Assignment</a>
+    </li>
                 }
             }
-        </ul>
+</ul>
     }
     else
     {
-        <p>Students Are Lazy, No Submissions Yet</p>
+<p>Students Are Lazy, No Submissions Yet</p>
     }
 }
 
-<!--Make button that should redirect based on if their a professor or student-->
 <div>
     <a href="/Identity/AssignmentPages/">Go to Assignment Index Page</a>
 </div>

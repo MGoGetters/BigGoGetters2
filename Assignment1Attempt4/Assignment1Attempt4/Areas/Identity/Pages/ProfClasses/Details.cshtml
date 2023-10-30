@@ -57,7 +57,8 @@
        asp-route-maxPoints="@Model.Assignments.MaxPoints"
        asp-route-dueDate="@Model.Assignments.DueDate"
        asp-route-assignmentType="@Model.Assignments.AssignmentType"
-       asp-route-classesID="@Model.Assignments.ClassesID">Upload Assignment</a>
+       asp-route-classesID="@Model.Assignments.ClassesID"
+       asp-route-id="@Model.Assignments.ID">Upload Assignment</a>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Assignments?.ID">Edit</a> |

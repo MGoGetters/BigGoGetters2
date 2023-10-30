@@ -19,7 +19,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             _context = context;
         }
 
-      public Assignments Assignments { get; set; } = default!; 
+        public Assignments Assignments { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,7 +35,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Assignments = assignments;
             }
