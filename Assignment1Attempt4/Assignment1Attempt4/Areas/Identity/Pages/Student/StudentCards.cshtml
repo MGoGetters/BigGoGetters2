@@ -7,6 +7,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="~/css/StudentCards.css">
 
+<style>
+    .rightside-list-header{
+        color: seagreen;
+    }
+
+    .rightside-list {
+        width: auto;
+        position: fixed;
+        z-index: 1;
+        top: 70px;
+        right: 10px;
+        background: #eee;
+        overflow-x: hidden;
+        padding: 8px 0;
+    }
+</style>
+
 <nav class="sidebar">
     <ul class="sidebar-nav">
         <li class="nav-selector">
@@ -43,27 +60,29 @@
 </nav>
 
 <div class="prof-dashboard-card text-center">
-    @foreach (var item in Model.Classes)
-    {
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">
-                    @Html.DisplayFor(modelItem => item.ClassName)
-                </h5>
-            </div>
-            <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Location: @Html.DisplayFor(modelItem => item.Location)
-                </h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
-                </h6>
-            </div>
-            <div>
-                <a asp-page="./StudentClassPage" asp-route-id="@item.ID">Take me to Class</a>
-            </div>
-        </div>
-    }
+    @foreach (var item in Model.Classes){
+    <div class="student-dashboard-card text-center">
+           <div class="card" style="width: 18rem;">
+               <div class="card-header">
+                   <h5 class="card-title">
+                       Class: @Html.DisplayFor(modelItem => item.ClassName)
+                   </h5>
+               </div>
+               <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-body-secondary">
+                       Class Location: @Html.DisplayFor(modelItem => item.Location)
+                   </h6>
+                   <h6 class="card-subtitle mb-2 text-body-secondary">
+                       Class Time: @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+                   </h6>
+               </div>
+               <div>
+                   <a asp-page="./StudentClassPage" asp-route-id="@item.ID">Take me to Class</a>
+               </div>
+           </div>
+    </div> 
+    <br>
+}
 </div>
 
 <!--look into making this a referenced file-->
