@@ -19,7 +19,9 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             _context = context;
         }
 
+
         public Assignments Assignments { get; set; } = default!;
+        public List<StudentSubmitsAssignment> StudentSubmitsAssignments { get; set; } = new List<StudentSubmitsAssignment>();
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -38,6 +40,11 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             else
             {
                 Assignments = assignments;
+
+                // Query the StudentSubmitsAssignment table for the associated data
+                StudentSubmitsAssignments = await _context.StudentSubmitsAssignment
+                    .Where(ssa => ssa.assignmentID == id)
+                    .ToListAsync();
             }
             return Page();
         }

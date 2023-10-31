@@ -8,48 +8,55 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Assignments</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assignments.AssignmentName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assignments.AssignmentName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assignments.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assignments.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assignments.MaxPoints)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assignments.MaxPoints)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assignments.DueDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assignments.DueDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assignments.AssignmentType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assignments.AssignmentType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assignments.ClassesID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assignments.ClassesID)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-sm-8">
+        <h4>Assignments</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Assignments.AssignmentName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Assignments.AssignmentName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Assignments.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Assignments.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Assignments.MaxPoints)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Assignments.MaxPoints)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Assignments.DueDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Assignments.DueDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Assignments.AssignmentType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Assignments.AssignmentType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Assignments.ClassesID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Assignments.ClassesID)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-sm-4">
+        <div id="letterGradeChart" style="width: 100%; height: 300px;"></div>
+    </div>
 </div>
+
 <div>
     <a asp-page="/AssignmentUpload/AssignmentUpload"
        asp-route-assignmentName="@Model.Assignments.AssignmentName"
@@ -64,3 +71,162 @@
     <a asp-page="./Edit" asp-route-id="@Model.Assignments?.ID">Edit</a> |
     <a asp-page="./ProfClassPage" asp-route-id="@ViewData["ClassID"]">Go back to Class Page</a>
 </div>
+<button id="toggleStudentGrades" class="btn btn-primary">Show Student Grades</button>
+
+<div id="studentGradesDiv" style="display: none;">
+    <h4>Student Grades</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student Grade</th>
+                <th>Percentage</th>
+                <th>Letter Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int countA = 0;
+                int countAMinus = 0;
+                int countBPlus = 0;
+                int countB = 0;
+                int countBMinus = 0;
+                int countCPlus = 0;
+                int countC = 0;
+                int countCMinus = 0;
+                int countDPlus = 0;
+                int countD = 0;
+                int countDMinus = 0;
+                int countE = 0;
+            }
+
+            @foreach (var ssa in Model.StudentSubmitsAssignments)
+            {
+                double percentage = ((double)ssa.StudentGrade / Model.Assignments.MaxPoints * 100);
+                string letterGrade = "";
+
+                switch (percentage)
+                {
+                    case var p when p >= 94.00:
+                        letterGrade = "A";
+                        countA++;
+                        break;
+                    case var p when p >= 90.00:
+                        letterGrade = "A-";
+                        countAMinus++;
+                        break;
+                    case var p when p >= 87.00:
+                        letterGrade = "B+";
+                        countBPlus++;
+                        break;
+                    case var p when p >= 84.00:
+                        letterGrade = "B";
+                        countB++;
+                        break;
+                    case var p when p >= 80.00:
+                        letterGrade = "B-";
+                        countBMinus++;
+                        break;
+                    case var p when p >= 77.00:
+                        letterGrade = "C+";
+                        countCPlus++;
+                        break;
+                    case var p when p >= 74.00:
+                        letterGrade = "C";
+                        countC++;
+                        break;
+                    case var p when p >= 70.00:
+                        letterGrade = "C-";
+                        countCMinus++;
+                        break;
+                    case var p when p >= 67.00:
+                        letterGrade = "D+";
+                        countDPlus++;
+                        break;
+                    case var p when p >= 64.00:
+                        letterGrade = "D";
+                        countD++;
+                        break;
+                    case var p when p >= 60.00:
+                        letterGrade = "D-";
+                        countDMinus++;
+                        break;
+                    default:
+                        letterGrade = "E";
+                        countE++;
+                        break;
+                }
+
+                <tr>
+                    <td>@($"{ssa.Fname} {ssa.Lname}")</td>
+                    <td>@ssa.StudentGrade</td>
+                    <td>@percentage.ToString("0.00")%</td>
+                    <td>@letterGrade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="letterGradeChart" style="width: 100%; height: 300px;"></div>
+
+<script>
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Letter Grade');
+        data.addColumn('number', 'Count');
+
+        // Define your letter grade variables
+        var countA = @countA;
+        var countAMinus = @countAMinus;
+        var countBPlus = @countBPlus;
+        var countB = @countB;
+        var countBMinus = @countBMinus;
+        var countCPlus = @countCPlus;
+        var countC = @countC;
+        var countCMinus = @countCMinus;
+        var countDPlus = @countDPlus;
+        var countD = @countD;
+        var countDMinus = @countDMinus;
+        var countE = @countE;
+
+        // Populate the data table
+        data.addRows([
+            ['A', countA],
+            ['A-', countAMinus],
+            ['B+', countBPlus],
+            ['B', countB],
+            ['B-', countBMinus],
+            ['C+', countCPlus],
+            ['C', countC],
+            ['C-', countCMinus],
+            ['D+', countDPlus],
+            ['D', countD],
+            ['D-', countDMinus],
+            ['E', countE]
+        ]);
+
+        var options = {
+            title: 'Letter Grade Distribution',
+            pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('letterGradeChart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script>
+    document.getElementById("toggleStudentGrades").addEventListener("click", function () {
+        var studentGradesDiv = document.getElementById("studentGradesDiv");
+        if (studentGradesDiv.style.display === "none") {
+            studentGradesDiv.style.display = "block";
+        } else {
+            studentGradesDiv.style.display = "none";
+        }
+    });
+</script>
