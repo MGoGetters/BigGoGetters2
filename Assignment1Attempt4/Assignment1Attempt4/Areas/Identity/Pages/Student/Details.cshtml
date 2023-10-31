@@ -69,7 +69,7 @@
 <!--BEGINNING OF ZACKS ADDITIONS-->
 
 
-<div id="gradePieChart" style="width: 400px; height: 300px;"></div>
+<div id="gradePieChart" style="width: 800px; height: 600px; position: absolute; top: -5%; right: 1%;"></div>
 
 @{
     var firstName1 = HttpContext.Session.GetString("CurrentFName");
@@ -132,14 +132,16 @@
     }
 }
 
-<div>
+<div id="studentInfoContainer" style="position: absolute; top: 65%; right: 20%;">
     @if (studentSubmission != null)
     {
-        <h4>Student Information</h4>
+        <h4>Student Grade Information</h4>
         <div>
             <p>Name: @studentSubmission.Fname @studentSubmission.Lname</p>
-            <p>Grade: @studentSubmission.StudentGrade</p>
+            <p>Grade: @studentSubmission.StudentGrade out of @maxPoints1</p>
             <p>Percentage: @percentage1.ToString("F2")%</p>
+            <h4>Letter Grade</h4>
+            <p>Grade: @letterGrade1</p>
         </div>
     }
     else
@@ -147,12 +149,6 @@
         <p>No submission found for @firstName1 @lastName1</p>
     }
 </div>
-
-<div>
-    <h4>Letter Grade</h4>
-    <p>Grade: @letterGrade1</p>
-</div>
-
 
 
 <!--IT IS A WARZONE AFTER THIS COMMENT-->
@@ -308,18 +304,7 @@
         data.addRow(['E', @countE]);
 
         var colors = [
-            '#00FF00',  
-            '#FFFF00',  
-            '#FFA500',  
-            '#FF0000',  
-            '#FF1493',  
-            '#FF4500',  
-            '#008000',  
-            '#0000FF',  
-            '#800080',  
-            '#2E8B57',  
-            '#000000',  
-            '#222222'   
+            '#00FF00', '#FFFF00', '#FFA500', '#FF0000', '#FF1493', '#FF4500', '#008000', '#0000FF', '#800080', '#2E8B57', '#000000', '#222222'
         ];
 
         var options = {
