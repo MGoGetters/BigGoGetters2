@@ -210,9 +210,14 @@
             ['E', countE]
         ]);
 
+        var colors = [
+            '#00FF00', '#B9FF00', '#FFFF00', '#FFE800', '#FFC100', '#FFAA00', '#FF8F00', '#FF7800', '#FF5900', '#FF3E00', '#FF1F00', '#000000'
+        ];
+
         var options = {
             title: 'Letter Grade Distribution',
             pieHole: 0.4,
+            colors: colors
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('letterGradeChart'));

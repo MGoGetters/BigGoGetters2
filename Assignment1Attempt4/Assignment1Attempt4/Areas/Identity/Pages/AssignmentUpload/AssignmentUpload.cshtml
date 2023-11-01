@@ -120,9 +120,18 @@ else if (stuOrProf == "Professor")
     }
 }
 
-<div>
-    <a href="/Identity/AssignmentPages/">Go to Assignment Index Page</a>
-</div>
+@if (stuOrProf == "Student")
+{
+    <div>
+        <a href="/Identity/Student/StudentCards">Go to home Page</a>
+    </div>
+}
+else if (stuOrProf == "Professor")
+{
+    <div>
+        <a href="Identity/ProfClasses/ProfCards">Go to home Page</a>
+    </div>
+}
 
 <script>
     function viewFile(button) {
