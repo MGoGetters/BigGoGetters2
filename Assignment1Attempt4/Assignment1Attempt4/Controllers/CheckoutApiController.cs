@@ -23,41 +23,6 @@ public class StripeOptions
 namespace Assignment1Attempt4.Controllers
 {
 
-    //I dont think we need 'Program' or 'Startup'
-    //not deleting them in case I am wrong
-
-    //public class Program
-    //{
-    //    public static void Main(string[] args)
-    //    {
-    //        WebHost.CreateDefaultBuilder(args)
-    //          .UseUrls("http://0.0.0.0:4242")
-    //          .UseWebRoot("public")
-    //          .UseStartup<Startup>()
-    //          .Build()
-    //          .Run();
-    //    }
-    //}
-
-    //public class Startup
-    //{
-    //    public void ConfigureServices(IServiceCollection services)
-    //    {
-    //        services.AddControllers().AddNewtonsoftJson();
-    //    }
-    //    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    //    {
-    //        // This is a public sample test API key.
-    //        // Don’t submit any personally identifiable information in requests made with this key.
-    //        // Sign in to see your own test API key embedded in code samples.
-    //        StripeConfiguration.ApiKey = "sk_test_51O1A5TFvCFi2Xa6Y26tS2zzjoHlPUwIIwXhBpR32OihbP6nsfJ32vxcrO8B1Z4dVmq0pxnDHuxAwQfqLsMc9Dmo1009EHdMiYo";
-    //        if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-    //        app.UseRouting();
-    //        app.UseStaticFiles();
-    //        app.UseEndpoints(endpoints => endpoints.MapControllers());
-    //    }
-    //}
-
     [Route("create-checkout-session")]
     [ApiController]
     public class CheckoutApiController : Controller
@@ -134,8 +99,8 @@ namespace Assignment1Attempt4.Controllers
             },
             },
                 Mode = "payment",
-                SuccessUrl = "http://localhost:7177/success.html",
-                CancelUrl = "http://localhost:7177/cancel.html",
+                SuccessUrl = "https://localhost:7177/Identity/Checkout/Success",
+                CancelUrl = "https://localhost:7177/Identity/Checkout/Cancel",
             };
 
             var service = new SessionService();
@@ -150,45 +115,6 @@ namespace Assignment1Attempt4.Controllers
         [HttpPost("create-checkout-session")]
         public ActionResult CreateCheckoutSession()
         {
-            //this was the original sample code
-            //not deleting incase we need it 
-
-            //    var options = new SessionCreateOptions
-            //    {
-            //        LineItems = new List<SessionLineItemOptions>
-            //{
-            //  new SessionLineItemOptions
-            //  {
-            //    PriceData = new SessionLineItemPriceDataOptions
-            //    {
-            //      UnitAmount = 2000,
-            //      Currency = "usd",
-            //      ProductData = new SessionLineItemPriceDataProductDataOptions
-            //      {
-            //        Name = "T-shirt",
-            //      },
-            //    },
-            //    Quantity = 1,
-            //  },
-            //},
-            //        Mode = "payment",
-            //        SuccessUrl = "http://localhost:4242/success.html",
-            //        CancelUrl = "http://localhost:4242/cancel.html",
-            //    };
-
-            //    var service = new SessionService();
-            //    Session session = service.Create(options);
-
-            //    Response.Headers.Add("Location", session.Url);
-            //    return new StatusCodeResult(303);
-
-
-
-            //int numCredits = GetNumCredits((int)HttpContext.Session.GetInt32("UserID"));
-            //int numCredits = GetNumCredits((int)HttpContext.Session.GetInt32("UserID"));
-
-
-
             var options = new SessionCreateOptions
             {
                 LineItems = new List<SessionLineItemOptions>
@@ -210,8 +136,8 @@ namespace Assignment1Attempt4.Controllers
             },
             },
                 Mode = "payment",
-                SuccessUrl = "http://localhost:7177/success.html",
-                CancelUrl = "http://localhost:7177/cancel.html",
+                SuccessUrl = "https://localhost:7177/Identity/Checkout/Success",
+                CancelUrl = "https://localhost:7177/Identity/Checkout/Cancel",
             };
 
             var service = new SessionService();
