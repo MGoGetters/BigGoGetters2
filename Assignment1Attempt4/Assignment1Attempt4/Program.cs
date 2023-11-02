@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Assignment1Attempt4.Data;
 using Assignment1Attempt4.Areas.Identity.Data;
+using Stripe;
+using Assignment1Attempt4.Controllers;
+using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Assignment1Attempt4DBContextConnection") ?? throw new InvalidOperationException("Connection string 'Assignment1Attempt4DBContextConnection' not found.");
@@ -18,6 +21,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddSession();
 builder.Services.AddDistributedMemoryCache();
 
+builder.Services.AddTransient<CheckoutApiController>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,9 +34,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//gets stripe SecretKey
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+
 
 app.UseAuthorization();
 
