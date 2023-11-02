@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Assignment1Attempt4.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/StudentCards.css">
 </head>
 <body>
     <header>
@@ -28,6 +30,41 @@
             @RenderBody()
         </main>
     </div>
+
+    <nav class="sidebar">
+        <ul class="sidebar-nav">
+            <li class="nav-selector">
+                <a href="https://localhost:7177/Identity/Account/Manage" target="_blank" class="nav-link">
+                    <i class="fa fa-fw fa-gear"></i>
+                    <span class="link-text">Settings</span>
+                </a>
+            </li>
+            <li class="nav-selector">
+                <a href="https://localhost:7177/Identity/Calendar/Calendar" target="_blank" class="nav-link">
+                    <i class="fa fa-fw fa-calendar"></i>
+                    <span class="link-text">Calendar</span>
+                </a>
+            </li>
+            <li class="nav-selector">
+                <a href="https://localhost:7177/Identity/ProfileTestPage/Profile" target="_blank" class="nav-link">
+                    <i class="fa fa-fw fa-user-circle-o"></i>
+                    <span class="link-text">Homepage</span>
+                </a>
+            </li>
+            <li class="nav-selector">
+                <a href="https://localhost:7177/Identity/Student/RegisterForClass" target="_blank" class="nav-link">
+                    <i class="fa fa-fw fa fa-id-card-o"></i>
+                    <span class="link-text">Register</span>
+                </a>
+            </li>
+            <li class="nav-selector">
+                <a href="https://localhost:7177/Identity/UploadPage/Upload" target="_blank" class="nav-link">
+                    <i class="fa fa-fw fa-upload"></i>
+                    <span class="link-text">Upload</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- Add border-top class back to the footer if the team doesn't want the whole black sidebar -->
     <footer class="footer text-muted">
