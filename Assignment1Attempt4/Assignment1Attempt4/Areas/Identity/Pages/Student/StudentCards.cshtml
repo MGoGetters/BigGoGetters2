@@ -5,24 +5,6 @@
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 
-
-<style>
-    .rightside-list-header{
-        color: seagreen;
-    }
-
-    .rightside-list {
-        width: auto;
-        position: fixed;
-        z-index: 1;
-        top: 70px;
-        right: 10px;
-        background: #eee;
-        overflow-x: hidden;
-        padding: 8px 0;
-    }
-</style>
-
 <div class="prof-dashboard-card text-center">
     @foreach (var item in Model.Classes){
     <div class="student-dashboard-card text-center">
