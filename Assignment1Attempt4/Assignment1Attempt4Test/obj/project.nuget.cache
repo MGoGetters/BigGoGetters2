@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HRpY5nvejfGWQ47+UPGt5UMTXP4XqemQkQdL3180G1JIsSVKxIIAtaey5SgcczgT5XZiRVeyrxABoKNqr9lOaQ==",
+  "dgSpecHash": "IXDyWb0+woqTPF+UvFYHWfA1mSeZEVjIwGGpkSJhOu+Ukm9zr5SmgYkH/OUUnuOGFTcdEABNftH5L2Tj/HKSgw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\micha\\Desktop\\repos\\CS3750PersonalAssignments\\GroupProjectBackupOrSomethingIDK\\Assignment1Attempt4\\Assignment1Attempt4Test\\Assignment1Attempt4Test.csproj",
+  "projectFilePath": "C:\\Users\\micha\\Desktop\\repos\\BigGoGetters\\Assignment1Attempt4\\Assignment1Attempt4Test\\Assignment1Attempt4Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micha\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
