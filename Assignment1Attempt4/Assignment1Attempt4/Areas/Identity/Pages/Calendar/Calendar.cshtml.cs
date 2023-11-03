@@ -19,6 +19,8 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Calendar
 
         public List<CalendarEvent> Events { get; set; }
 
+        public string stuOrProf { get; set; }
+
         public class CalendarEvent
         {
             public string Title { get; set; }
@@ -39,7 +41,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Calendar
         public void OnGet()
         {
             Events = new List<CalendarEvent>();
-            var stuOrProf = HttpContext.Session.GetString("StuOrProf");
+            stuOrProf = HttpContext.Session.GetString("StuOrProf");
             List<Assignment1Attempt4.Areas.Identity.Data.Model.Classes> classInfoList = new List<Assignment1Attempt4.Areas.Identity.Data.Model.Classes>(); // Initialize an empty list
 
             if (stuOrProf == "Professor")
