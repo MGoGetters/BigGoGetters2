@@ -8,16 +8,16 @@
 
 }
 
-@* @if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User))
 {
 
-    if (@ViewData["StuOrProf"].Equals("Student"))
-    { *@
+    if (Model.stuOrProf == "Student")
+    {
         <div>
             <h1>Payment cancelled :(</h1>
         </div>
 
-@*     }
+    }
     else
     {
 
@@ -25,4 +25,5 @@
     }
 
 }
- *@
+
+

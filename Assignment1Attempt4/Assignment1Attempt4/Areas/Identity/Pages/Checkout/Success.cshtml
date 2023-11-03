@@ -1,26 +1,29 @@
 ﻿@page
 @inject SignInManager<Assignment1Attempt4User> SignInManager
 @inject UserManager<Assignment1Attempt4User> UserManager
-@model Assignment1Attempt4.Areas.Identity.Pages.Checkout.SuccessModel
+@model Assignment1Attempt4.Areas.Identity.Pages.Checkout.CancelModel
 @{
-    ViewData["Title"] = "Success";
+    ViewData["Title"] = "Success"; ;
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
+
 }
 
-@* @if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User))
 {
 
-    if (@ViewData["StuOrProf"].Equals("Student"))
-    { *@
+    if (Model.stuOrProf == "Student")
+    {
         <div>
             <h1>Payment Success!</h1>
         </div>
 
-@*     }
+    }
     else
     {
+
         <meta http-equiv="Refresh" content="0; url=https://localhost:7177/Identity/ProfClasses/ProfCards" />
     }
 
 }
- *@
+
+
