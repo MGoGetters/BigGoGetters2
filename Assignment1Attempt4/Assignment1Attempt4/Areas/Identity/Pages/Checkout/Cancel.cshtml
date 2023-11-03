@@ -1,4 +1,6 @@
 ﻿@page
+@inject SignInManager<Assignment1Attempt4User> SignInManager
+@inject UserManager<Assignment1Attempt4User> UserManager
 @model Assignment1Attempt4.Areas.Identity.Pages.Checkout.CancelModel
 @{
     ViewData["Title"] = "Cancel";
@@ -6,7 +8,21 @@
 
 }
 
+@* @if (SignInManager.IsSignedIn(User))
+{
 
-<div>
-    <h1>Payment cancelled :(</h1>
-</div>
+    if (@ViewData["StuOrProf"].Equals("Student"))
+    { *@
+        <div>
+            <h1>Payment cancelled :(</h1>
+        </div>
+
+@*     }
+    else
+    {
+
+        <meta http-equiv="Refresh" content="0; url=https://localhost:7177/Identity/ProfClasses/ProfCards" />
+    }
+
+}
+ *@

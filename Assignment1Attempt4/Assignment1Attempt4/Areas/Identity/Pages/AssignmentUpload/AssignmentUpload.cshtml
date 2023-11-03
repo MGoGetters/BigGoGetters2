@@ -2,6 +2,9 @@
 @model Assignment1Attempt4.Areas.Identity.Pages.AssignmentUpload.AssignmentUploadModel
 @using System.IO
 @{
+
+    Layout = "/Views/Shared/_ProfLayout.cshtml";
+
     var firstName = HttpContext.Session.GetString("CurrentFName");
     var lastName = HttpContext.Session.GetString("CurrentLName");
     var stuOrProf = HttpContext.Session.GetString("StuOrProf");

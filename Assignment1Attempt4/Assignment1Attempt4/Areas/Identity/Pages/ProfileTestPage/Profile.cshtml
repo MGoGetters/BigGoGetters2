@@ -1,6 +1,29 @@
 ﻿@page
 @model Assignment1Attempt4.Areas.Identity.Pages.ProfileTestPage.ProfileModel
+@inject SignInManager<Assignment1Attempt4User> SignInManager
+@inject UserManager<Assignment1Attempt4User> UserManager
 @{
+
+
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+        if (@ViewData["StuOrProf"].Equals("Student"))
+        {
+            Layout = "~/Views/Shared/_StudentLayout.cshtml";
+
+        }
+        else
+        {
+
+            Layout = "/Views/Shared/_ProfLayout.cshtml";
+        }
+
+    }
+
+
+
     var userName = PageContext.HttpContext.User.Identity.Name;
     var picturePath = $"/pfpimages/{userName}.jpg";
 
