@@ -14,5 +14,6 @@ namespace Assignment1Attempt4.Areas.Identity.Data.Model
         public int studentID { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
+        public Boolean IsGraded { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using Assignment1Attempt4.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment1Attempt4.Migrations
 {
     [DbContext(typeof(Assignment1Attempt4DBContext))]
-    partial class Assignment1Attempt4DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231106203821_AddedIsGraded")]
+    partial class AddedIsGraded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

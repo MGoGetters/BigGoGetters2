@@ -38,6 +38,9 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account.AssignmentGrade
         [BindProperty]
         public string studentID { get; set; }
 
+        [BindProperty]
+        public string IsGraded { get; set; }
+
         public AssignmentGradeModel(ILogger<AssignmentGradeModel> logger, Assignment1Attempt4DBContext context)
         {
             _logger = logger;
@@ -52,6 +55,7 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account.AssignmentGrade
             string firstName = Request.Form["firstName"];
             string lastName = Request.Form["lastName"];
             string assignmentName = Request.Form["assignmentName"];
+            bool isGraded = true;
 
             if (grade < 0 || grade > maxPoints)
             {
@@ -76,7 +80,8 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.Account.AssignmentGrade
                     assignmentID = assignmentID,
                     studentID = userNumber,
                     Fname = firstName,
-                    Lname = lastName
+                    Lname = lastName,
+                    IsGraded = isGraded
                 };
 
 
