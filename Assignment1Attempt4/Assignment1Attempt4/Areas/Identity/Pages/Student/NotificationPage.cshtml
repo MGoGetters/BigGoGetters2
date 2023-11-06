@@ -1,0 +1,43 @@
+﻿@page
+@model Assignment1Attempt4.Areas.Identity.Pages.Student.NotificationPageModel
+@{
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+
+<div>
+<h5>Assignment Notifications</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    AssignmentName
+                </th>
+                <th>
+                    MaxPoints
+                </th>
+                <th>
+                    Grade
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.assignmentLists)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignmentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GradeTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentGrade)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
