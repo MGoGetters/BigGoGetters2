@@ -3,6 +3,18 @@
 @{
     ViewData["Title"] = "ProfClassPage";
     Layout = "/Views/Shared/_ProfLayout.cshtml";
+    int countA = 0;
+    int countAMinus = 0;
+    int countBPlus = 0;
+    int countB = 0;
+    int countBMinus = 0;
+    int countCPlus = 0;
+    int countC = 0;
+    int countCMinus = 0;
+    int countDPlus = 0;
+    int countD = 0;
+    int countDMinus = 0;
+    int countE = 0;
 }
 
 <h1>Welcome to @Html.DisplayFor(model => model.Classes.ClassName)</h1>
@@ -71,3 +83,212 @@
         <!--<button type="button" class="btn" onclick="window.location.href = 'https://localhost:7177/Identity/AssignmentPages/Create'">Create Assignment</button>-->
     </p>
 </div>
+
+<!-- ZACKS CODE BELOW -->
+
+<div id="chart_div" style="width: 100%; height: 400px;"></div>
+
+<button id="showDetailsButton">Show Details</button>
+
+<div id="details" style="display: none;">
+
+
+    <div>
+        Total MaxPoints: <span>@Model.TotalMaxPoints</span>
+    </div>
+
+    <div>
+        <span>Assignment IDs</span>
+        <ul>
+            @foreach (var assignmentId in Model.AssignmentIDs)
+            {
+                <li>@assignmentId</li>
+            }
+        </ul>
+    </div>
+
+
+    <div>
+        <h4>Student Submissions</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Assignment ID
+                    </th>
+                    <th>
+                        Student ID
+                    </th>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Student Grade
+                    </th>
+                    <th>
+                        Max Grade
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var submission in Model.StudentSubmissions)
+                {
+                    <tr>
+                        <td>
+                            @submission.assignmentID
+                        </td>
+                        <td>
+                            @submission.studentID
+                        </td>
+                        <td>
+                            @submission.Fname
+                        </td>
+                        <td>
+                            @submission.Lname
+                        </td>
+                        <td>
+                            @submission.StudentGrade
+                        </td>
+                        <td>
+                            @submission.GradeTotal
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div>
+        <div>
+            <h4>Student Sums</h4>
+            <ul id="studentSums">
+                @foreach (var studentSum in Model.StudentSums)
+                {
+                    <li>
+                        Student ID: @studentSum.StudentID,
+                        Final Grade: @studentSum.FinalGrade.ToString("P2"),
+                        Letter Grade: @studentSum.LetterGrade
+                    </li>
+
+                    @switch (studentSum.LetterGrade)
+                    {
+                        case "A":
+                            countA++;
+                            break;
+                        case "A-":
+                            countAMinus++;
+                            break;
+                        case "B+":
+                            countBPlus++;
+                            break;
+                        case "B":
+                            countB++;
+                            break;
+                        case "B-":
+                            countBMinus++;
+                            break;
+                        case "C+":
+                            countCPlus++;
+                            break;
+                        case "C":
+                            countC++;
+                            break;
+                        case "C-":
+                            countCMinus++;
+                            break;
+                        case "D+":
+                            countDPlus++;
+                            break;
+                        case "D":
+                            countD++;
+                            break;
+                        case "D-":
+                            countDMinus++;
+                            break;
+                        case "E":
+                            countE++;
+                            break;
+                    }
+                }
+            </ul>
+
+            <div>
+                <h4>Letter Grade Counts</h4>
+                <ul>
+                    <li>A: @countA</li>
+                    <li>A-: @countAMinus</li>
+                    <li>B+: @countBPlus</li>
+                    <li>B: @countB</li>
+                    <li>B-: @countBMinus</li>
+                    <li>C+: @countCPlus</li>
+                    <li>C: @countC</li>
+                    <li>C-: @countCMinus</li>
+                    <li>D+: @countDPlus</li>
+                    <li>D: @countD</li>
+                    <li>D-: @countDMinus</li>
+                    <li>E: @countE</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('showDetailsButton').addEventListener('click', function () {
+            var details = document.getElementById('details');
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                this.textContent = 'Hide Details';
+            } else {
+                details.style.display = 'none';
+                this.textContent = 'Show Details';
+            }
+        });
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        google.charts.load('current', { packages: ['corechart'] });
+
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Final Grade');
+            data.addColumn('number', 'Number of Students');
+            data.addColumn({ type: 'string', role: 'style' });
+            data.addRows([
+                ['A', @countA, '#00FF00'],
+                ['A-', @countAMinus, '#B9FF00'],
+                ['B+', @countBPlus, '#FFFF00'],
+                ['B', @countB, '#FFE800'],
+                ['B-', @countBMinus, '#FFC100'],
+                ['C+', @countCPlus, '#FFAA00'],
+                ['C', @countC, '#FF8F00'],
+                ['C-', @countCMinus, '#FF7800'],
+                ['D+', @countDPlus, '#FF5900'],
+                ['D', @countD, '#FF3E00'],
+                ['D-', @countDMinus, '#FF1F00'],
+                ['E', @countE, '#000000']
+            ]);
+
+            var options = {
+                title: 'Letter Grade Counts',
+                legend: { position: 'none' },
+                vAxis: { title: 'Number of Students' },
+                hAxis: { title: 'Final Grade' },
+            };
+
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>

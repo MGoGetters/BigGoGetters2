@@ -6,7 +6,7 @@
 
 @{
     ViewData["Title"] = "Calendar";
-
+    HttpContext.Session.SetInt32("ClassID", 8675309);
 
 
     @if (SignInManager.IsSignedIn(User))
@@ -31,33 +31,112 @@
 <head>
     <meta charset='utf-8' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+    <style>
+
+        .fc-event.Class {
+            color: red;
+        }
+
+        .fc-event.Assignment {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div id='calendar'></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: @Html.Raw(Json.Serialize(Model.Events)),
-                eventClick: function (info) {
-                    var event = info.event;
-                    var alertMessage = 'Event: ' + event.title + '\n' +
-                        'Department: ' + event.extendedProps.department + '\n' +
-                        'Location: ' + event.extendedProps.location + '\n' +
-                        'PFName: ' + event.extendedProps.pfName + '\n' +
-                        'PLName: ' + event.extendedProps.plName + '\n' +
-                        'Monday: ' + event.extendedProps.monday + '\n' +
-                        'Tuesday: ' + event.extendedProps.tuesday + '\n' +
-                        'Wednesday: ' + event.extendedProps.wednesday + '\n' +
-                        'Thursday: ' + event.extendedProps.thursday + '\n' +
-                        'Friday: ' + event.extendedProps.friday;
 
-                    alert(alertMessage);
-                }
+    @if (Model.stuOrProf == "Student")
+    {
+        <div id='calendar'></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    events: @Html.Raw(Json.Serialize(Model.Events)),
+                    eventClick: function (info) {
+                        var event = info.event;
+                        var eventType = (!event.classNames.includes('assignment') ? 'Assignment' : 'Class');
+
+                        if (eventType === 'Assignment') {
+                            var assignmentLink;
+                            if (!event.classNames.includes('assignment')) {
+                                assignmentLink = 'https://localhost:7177/Identity/Student/Details?id=' + event.id;
+                            }
+                            window.location.href = assignmentLink;
+                        } else {
+                            var alertMessage = 'Event: ' + event.title + '\n' +
+                                'Event Type: ' + eventType + '\n' +
+                                'Department: ' + event.extendedProps.department + '\n' +
+                                'Location: ' + event.extendedProps.location + '\n' +
+                                'PFName: ' + event.extendedProps.pfName + '\n' +
+                                'PLName: ' + event.extendedProps.plName + '\n' +
+                                'Monday: ' + event.extendedProps.monday + '\n' +
+                                'Tuesday: ' + event.extendedProps.tuesday + '\n' +
+                                'Wednesday: ' + event.extendedProps.wednesday + '\n' +
+                                'Thursday: ' + event.extendedProps.thursday + '\n' +
+                                'Friday: ' + event.extendedProps.friday;
+                            alert(alertMessage); 
+                        }
+                    },
+                    eventRender: function (info) {
+                        var event = info.event;
+                        if (event.extendedProps.EventType === 'Assignment') {
+                            event.setProp('classNames', ['Assignment']);
+                        } else {
+                            event.setProp('classNames', ['Class']);
+                        }
+                    }
+                });
+                calendar.render();
             });
-            calendar.render();
-        });
-    </script>
+        </script>
+    }
+    else
+    {
+        <div id='calendar'></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    events: @Html.Raw(Json.Serialize(Model.Events)),
+                    eventClick: function (info) {
+                        var event = info.event;
+                        var eventType = (!event.classNames.includes('assignment') ? 'Assignment' : 'Class');
+
+                        if (eventType === 'Assignment') {
+                            var assignmentLink;
+                            if (!event.classNames.includes('assignment')) {
+                                assignmentLink = 'https://localhost:7177/Identity/ProfClasses/Details?id=' + event.id;
+                            }
+                            window.location.href = assignmentLink;
+                        } else {
+                            var alertMessage = 'Event: ' + event.title + '\n' +
+                                'Event Type: ' + eventType + '\n' +
+                                'Department: ' + event.extendedProps.department + '\n' +
+                                'Location: ' + event.extendedProps.location + '\n' +
+                                'PFName: ' + event.extendedProps.pfName + '\n' +
+                                'PLName: ' + event.extendedProps.plName + '\n' +
+                                'Monday: ' + event.extendedProps.monday + '\n' +
+                                'Tuesday: ' + event.extendedProps.tuesday + '\n' +
+                                'Wednesday: ' + event.extendedProps.wednesday + '\n' +
+                                'Thursday: ' + event.extendedProps.thursday + '\n' +
+                                'Friday: ' + event.extendedProps.friday;
+                            alert(alertMessage); 
+                        }
+                    },
+                    eventRender: function (info) {
+                        var event = info.event;
+                        if (event.extendedProps.EventType === 'Assignment') {
+                            event.setProp('classNames', ['Assignment']);
+                        } else {
+                            event.setProp('classNames', ['Class']);
+                        }
+                    }
+                });
+                calendar.render();
+            });
+        </script>
+    }
 </body>
 </html>

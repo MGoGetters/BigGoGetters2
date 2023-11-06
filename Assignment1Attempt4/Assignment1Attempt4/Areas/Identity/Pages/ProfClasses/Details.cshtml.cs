@@ -19,15 +19,15 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             _context = context;
         }
 
-
+        public int ClassID { get; set; }
         public Assignments Assignments { get; set; } = default!;
         public List<StudentSubmitsAssignment> StudentSubmitsAssignments { get; set; } = new List<StudentSubmitsAssignment>();
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            ViewData["ClassID"] = HttpContext.Session.GetInt32("ClassID").Value;
+            ClassID = HttpContext.Session.GetInt32("ClassID").Value;
 
-            if (id == null || _context.Assignments == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -37,15 +37,12 @@ namespace Assignment1Attempt4.Areas.Identity.Pages.AssignmentPages
             {
                 return NotFound();
             }
-            else
-            {
-                Assignments = assignments;
 
-                // Query the StudentSubmitsAssignment table for the associated data
-                StudentSubmitsAssignments = await _context.StudentSubmitsAssignment
-                    .Where(ssa => ssa.assignmentID == id)
-                    .ToListAsync();
-            }
+            Assignments = assignments;
+            StudentSubmitsAssignments = await _context.StudentSubmitsAssignment
+                .Where(ssa => ssa.assignmentID == id)
+                .ToListAsync();
+
             return Page();
         }
     }
