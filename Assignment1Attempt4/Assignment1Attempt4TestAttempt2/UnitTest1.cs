@@ -1,6 +1,7 @@
 using Assignment1Attempt4.Areas.Identity.Data.Model;
 using Assignment1Attempt4.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Linq;
 using System.Data;
 using System.Drawing.Text;
@@ -66,23 +67,25 @@ namespace Assignment1Attempt4TestAttempt2
             Assert.AreNotEqual(initalCourseCount, postCourseCount);
         }
 
-        //public void StudentCanRegisterForACourse()
-        //{
-        //    /*
-        //     known stud id 
+        [TestMethod]
+        public void StudentCanRegisterForACourse()
+        {
+            int stuID = 2;
+            int initialStudentInCourseCount = Context.StudentsInClasses.Where(sc => sc.StudentID == stuID).Count();
 
-        //    x = # courses registered for
+            StudentsInClasses newRegistration = new StudentsInClasses
+            {
+                ClassesID = 1,
+                StudentID = stuID
+            };
 
-        //    use code to register student for any new course
+            Context.StudentsInClasses.Add(newRegistration);
+            Context.SaveChanges();
 
-        //     y = x + 1
+            int postStudentInCourseCount = Context.StudentsInClasses.Where(sc => sc.StudentID == stuID).Count();
 
-        //    if true works 
-        //    false bad
-        //     */
-
-
-        //}
+            Assert.AreNotEqual(initialStudentInCourseCount, postStudentInCourseCount);
+        }
 
 
         //public void InstructorCanCreateAssignemntTest()
